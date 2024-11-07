@@ -1,7 +1,18 @@
-export default function About() {
+// src/components/About.jsx
+import React, { useEffect, useState } from 'react';
+import Navbar from '../components/navbar';
+import InputField from '../components/InputField';
+const About = () => {
+
+
   return (
-    <div className="flex justify-center">
-      <h1 className="text-3xl font-bold underline">About page</h1>
+    <div >
+      <Navbar />
+      <div className="flex justify-center mt-10">
+        <InputField />
+      </div>
     </div>
   );
-}
+};
+
+export default About;
