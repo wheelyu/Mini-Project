@@ -11,7 +11,7 @@ const regionApi = axios.create({
 });
 
 // Fungsi untuk mendapatkan data (GET request)
-export const getData = async () => {
+export const getDataRegion = async () => {
   try {
     const response = await regionApi.get('/Region'); // Ganti '/data' dengan endpoint API yang sesuai
     return response.data;

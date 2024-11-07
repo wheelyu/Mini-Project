@@ -11,11 +11,9 @@ const indeksApi = axios.create({
 });
 
 // Fungsi untuk mendapatkan data (GET request)
-export const getDataIndeks = async () => {
-    const latitude = 40.6943;
-    const longitude = -73.9249;
+export const getDataIndeks = async (latitude, longitude) => {
   try {
-    const response = await indeksApi.get('latitude=' + latitude + '&longitude=' + longitude); // Ganti '/data' dengan endpoint API yang sesuai
+    const response = await indeksApi.get('uvi?latitude=' + latitude + '&longitude=' + longitude); // Ganti '/data' dengan endpoint API yang sesuai
     return response.data;
   } catch (error) {
     console.error('Error fetching data:', error);
