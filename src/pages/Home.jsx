@@ -1,12 +1,25 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../components/navbar";
+
 export default function Home() {
-  const currentTime = new Date();
-  const formattedTime = currentTime.toLocaleTimeString();
+  const [formattedTime, setFormattedTime] = useState(new Date().toLocaleTimeString());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFormattedTime(new Date().toLocaleTimeString());
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
-    <div >
+    <div>
       <Navbar />
-      <p>Current Time: {formattedTime}</p>
+      <div className="mx-auto flex justify-center py-32 items-center">
+        <p className="text-6xl">Current Time: {formattedTime}</p>
+      </div>
     </div>
   );
 }
