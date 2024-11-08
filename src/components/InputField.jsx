@@ -78,7 +78,7 @@ const SelectForm = () => {
   return (
     <div className='flex flex-col justify-center items-center'>
       <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow-md w-full">
-        <h2 className="text-2xl font-semibold mb-4 px-20">Cek UV Index Daerah</h2>
+        <h2 className="text-2xl font-semibold mb-4 px-20">Cek UV Index </h2>
 
         {error && <p className="text-red-500">{error}</p>}
 
