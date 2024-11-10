@@ -9,7 +9,7 @@ const Navbar = () => {
         <ul className="flex space-x-4">
           <li><Link to="/" className="text-white hover:text-gray-200">Beranda</Link></li>
           <li><Link to="/check" className="text-white hover:text-gray-200">Cek UV Indeks</Link></li>
-          <li><Link to="/check" className="text-white hover:text-gray-200">About</Link></li>
+          <li><Link to="/about" className="text-white hover:text-gray-200">About</Link></li>
         </ul>
       </div>
     </nav>
