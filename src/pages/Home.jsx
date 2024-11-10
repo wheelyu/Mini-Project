@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbar/navbar";
 
 export default function Home() {
   const [formattedTime, setFormattedTime] = useState(new Date().toLocaleTimeString());
@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <div>
-      <Navbar />
+      <Navbar active="home" />
       <div className="mx-auto flex justify-center py-32 items-center">
         <p className="text-6xl">Current Time: {formattedTime}</p>
       </div>
