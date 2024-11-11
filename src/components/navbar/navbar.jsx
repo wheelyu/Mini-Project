@@ -8,17 +8,21 @@ const Navbar = (props) => {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     if (isDarkMode) {
+
       localStorage.setItem('theme', 'light');
       document.documentElement.classList.remove('dark');
+    }
     } else {
-      localStorage.setItem('theme', 'dark');
+
       document.documentElement.classList.add('dark');
     }
   };
 
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-[#415A77] text-sm py-3 dark:bg-[#1b263b] transition-all duration-300">
+
       <nav className="max-w-[100rem] w-full mx-auto px-10 flex flex-wrap basis-full items-center justify-between">
+
         <a
           className="sm:order-1 flex-none text-xl font-semibold text-white focus:outline-none focus:opacity-80"
           href="#"
