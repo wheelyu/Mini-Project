@@ -6,7 +6,6 @@ import { getDataIndeks } from '../services/indeksAPI';
 const SelectForm = () => {
   const [dataRegion, setDataRegion] = useState([]);
   const [dataIndeks, setDataIndeks] = useState(null);
-  const [isLoader, setIsLoader] = useState(false);
   const [formState, setFormState] = useState({
     selectedOption: '',
     selectedDate: '',
@@ -33,7 +32,7 @@ const SelectForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoader(true);
+
     setDataIndeks(null);
     setForecastData(null);
     setError(null);
@@ -65,8 +64,6 @@ const SelectForm = () => {
       } else {
         setError('Forecast data not found for selected date and time.');
       }
-
-      setIsLoader(false);
     } catch {
       setError('Failed to fetch indeks data');
     }
@@ -83,7 +80,7 @@ const SelectForm = () => {
       <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow-md w-full">
         <h2 className="text-2xl font-semibold mb-4 px-20">Cek UV Index </h2>
 
-        {error && <p className="text-red-500">{error}</p>}
+        
 
         <div className="mb-4">
           <label htmlFor="options" className="block text-gray-700 font-medium mb-2">Daerah</label>
@@ -142,26 +139,26 @@ const SelectForm = () => {
 
       <div className="p-4">
         <h2 className="text-xl font-bold">Data INDEKS UV</h2>
-        {isLoader ? <div className="loader mx-auto"></div> : 
-        (dataIndeks?.now ? (
-          <ul className="list-disc ">
+        {dataIndeks?.now ? (
+          <ul className="list-disc pl-5">
             <li><strong>Current Time:</strong> {formatWIBTime(dataIndeks.now.time)}</li>
             <li><strong>Current UVI:</strong> {dataIndeks.now.uvi}</li>
           </ul>
         ) : (
           <p className="text-gray-500">Tidak ada data terkini</p>
-        ))}
-        
+        )}
 
         <h2 className="text-xl font-bold mt-4">Forecast Data</h2>
         {forecastData ? (
-          <ul className="list-disc ">
+          <ul className="list-disc pl-5">
             <li><strong>Forecast Time:</strong> {formatWIBTime(forecastData.time)}</li>
             <li><strong>Forecast UVI:</strong> {forecastData.uvi}</li>
           </ul>
         ) : (
           <p className="text-gray-500">Tidak ada Data Ramalan</p>
+          
         )}
+        {error && <p className="text-red-500">{error}</p>}
       </div>
     </div>
   );
