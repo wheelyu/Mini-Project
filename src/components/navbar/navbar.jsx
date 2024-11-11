@@ -12,7 +12,7 @@ const Navbar = (props) => {
       localStorage.setItem('theme', 'light');
       document.documentElement.classList.remove('dark');
     }
-    } else {
+     else {
 
       document.documentElement.classList.add('dark');
     }
