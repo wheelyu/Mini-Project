@@ -27,7 +27,8 @@ const Navbar = (props) => {
           className="sm:order-1 flex-none text-xl font-semibold text-white focus:outline-none focus:opacity-80"
           href="#"
         >
-          LacakUV
+          <img src="Lacak.png" alt="Logo" className="object-contain w-40 h-20" />
+          
         </a>
         <div className="sm:order-3 flex items-center gap-x-2">
           <label className="switch">

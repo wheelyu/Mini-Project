@@ -26,45 +26,39 @@ const Carousel = () => {
                     <div className="hs-carousel-slide px-1">
                     <div className="flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-900 rounded-lg">
                         <span className="self-center text-sm text-gray-800 transition duration-700 dark:text-white">
-                        First slide
+                        Low
                         </span>
                     </div>
                     </div>
                     <div className="hs-carousel-slide px-1">
                     <div className="flex justify-center h-full bg-gray-200 p-6 dark:bg-neutral-800 rounded-lg">
                         <span className="self-center text-sm text-gray-800 transition duration-700 dark:text-white">
-                        Second slide
+                        Medium
                         </span>
                     </div>
                     </div>
                     <div className="hs-carousel-slide px-1">
                     <div className="flex justify-center h-full bg-gray-300 p-6 dark:bg-neutral-700 rounded-lg">
                         <span className="self-center text-sm text-gray-800 transition duration-700 dark:text-white">
-                        Third slide
+                        High
                         </span>
                     </div>
                     </div>
                     <div className="hs-carousel-slide px-1">
                     <div className="flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-900 rounded-lg">
                         <span className="self-center text-sm text-gray-800 transition duration-700 dark:text-white">
-                        Fourth slide
+                        Very High
                         </span>
                     </div>
                     </div>
                     <div className="hs-carousel-slide px-1">
                     <div className="flex justify-center h-full bg-gray-200 p-6 dark:bg-neutral-800 rounded-lg">
                         <span className="self-center text-sm text-gray-800 transition duration-700 dark:text-white">
-                        Fifth slide
+                        Extremely High
                         </span>
                     </div>
                     </div>
-                    <div className="hs-carousel-slide px-1">
-                    <div className="flex justify-center h-full bg-gray-300 p-6 dark:bg-neutral-700 rounded-lg">
-                        <span className="self-center text-sm text-gray-800 transition duration-700 dark:text-white">
-                        Sixth slide
-                        </span>
-                    </div>
-                    </div>
+                    
                 </div>
                 </div>
             </div>

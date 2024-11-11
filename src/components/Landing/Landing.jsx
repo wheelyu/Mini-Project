@@ -32,9 +32,9 @@ const LandingPage = () => {
         {/* Bagian Kiri - Gambar */}
         <div className="flex-1 flex justify-center items-center">
             <img
-            src="https://via.placeholder.com/500" // Ganti dengan URL gambar yang diinginkan
+            src="sun.png" // Ganti dengan URL gambar yang diinginkan
             alt="Example Image"
-            className="rounded-lg shadow-lg max-w-full h-auto"
+            className=" min-w-[500px] h-[500px]"
             />
         </div>
 
