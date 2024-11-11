@@ -83,7 +83,7 @@ const SelectForm = () => {
       <form onSubmit={handleSubmit} className="p-6 bg-white rounded shadow-md w-full">
         <h2 className="text-2xl font-semibold mb-4 px-20">Cek UV Index </h2>
 
-        {error && <p className="text-red-500">{error}</p>}
+        
 
         <div className="mb-4">
           <label htmlFor="options" className="block text-gray-700 font-medium mb-2">Daerah</label>
@@ -161,7 +161,9 @@ const SelectForm = () => {
           </ul>
         ) : (
           <p className="text-gray-500">Tidak ada Data Ramalan</p>
+          
         )}
+        {error && <p className="text-red-500">{error}</p>}
       </div>
     </div>
   );
