@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/navbar/navbar";
+
 import Landing from "../components/Landing/Landing";
 import Carousel from "../components/Carousel/Carousel";
 import StickyCtaButton from "../components/ctaButton";
