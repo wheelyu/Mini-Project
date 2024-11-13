@@ -130,7 +130,7 @@ const SelectForm = () => {
       )}
 
       <div className="mb-4">
-        <label htmlFor="date" className="block text-gray-700 font-medium mb-2">Pilih Tanggal</label>
+        <label htmlFor="date" className="block text-gray-700 font-medium mb-2">Pilih Tanggalsss</label>
         <input
           type="date"
           id="date"
