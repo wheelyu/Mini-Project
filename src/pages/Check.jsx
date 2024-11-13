@@ -1,16 +1,16 @@
 // src/components/About.jsx
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/navbar';
-import InputField from '../components/InputField';
+import Navbar from '../components/navbar/navbar';
+import InputField from '../components/inputField/InputField';
 const About = () => {
 
 
   return (
     <div >
-      <Navbar />
-      <div className="flex justify-center mt-10">
+      <Navbar active="check"/>
+      
         <InputField />
-      </div>
+      
     </div>
   );
 };
