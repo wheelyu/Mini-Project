@@ -1,225 +1,207 @@
-// src/inputField/SelectForm.jsx
+// components/SelectForm.jsx
 import React, { useState, useEffect } from 'react';
-import { getDataIndeks } from '../../services/indeksAPI';
-import './inputField.css';
+import { getLocation, fetchLocationName } from '../../services/LocationServices';
+import {getDataIndeks} from '../../services/indeksAPI';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
+import useStore from '../../store/useUVStore';
 import AOS from 'aos';
-import 'aos/dist/aos.css'; // Mengimpor file CSS AOS
-
+import 'aos/dist/aos.css';
+import './inputField.css';
 
 const SelectForm = () => {
-  const [dataIndeks, setDataIndeks] = useState(null);
-  const [isLoader, setIsLoader] = useState(false);
   const [formState, setFormState] = useState({
     selectedDate: '',
     selectedHour: '',
   });
-  const [forecastData, setForecastData] = useState(null);
-  const [error, setError] = useState(null);
   const [latitude, setLatitude] = useState(null);
   const [longitude, setLongitude] = useState(null);
-  const [locationName, setLocationName] = useState('');
+  
+  const { 
+    uvData: { locationName, error },
+    setLocationName, 
+    setLoading, 
+    setError,
+    setUVData 
+  } = useStore();
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Durasi animasi dalam milidetik
-      once: true,     // Animasi hanya muncul sekali saat scroll
+      duration: 1000,
+      once: true,
     });
   }, []);
-  
+
   const handleInputChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });
   };
 
-  const getLocation = () => {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        async (position) => {
-          const { latitude, longitude } = position.coords;
-          setLatitude(latitude);
-          setLongitude(longitude);
-          setError(null);
-          fetchLocationName(latitude, longitude);
-        },
-        () => setError('Unable to retrieve your location')
-      );
-    } else {
-      setError('Geolocation is not supported by your browser');
-    }
-  };
+  const handleGetLocation = () => {
 
-  const fetchLocationName = async (latitude, longitude) => {
-    try {
-      const response = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`
-      );
-      const data = await response.json();
-      setLocationName(data.address.city || data.address.village || data.address.town || 'Unknown Location');
-    } catch {
-      setLocationName('Unable to determine location name');
-    }
+    getLocation(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
+        setLatitude(latitude);
+        setLongitude(longitude);
+        try {
+          const name = await fetchLocationName(latitude, longitude);
+          setLocationName(name);
+          setError(null);
+        } catch (error) {
+          setError('Unable to determine location name');
+        } finally {
+
+        }
+      },
+      () => {
+        setError('Unable to retrieve your location');
+
+      }
+    );
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!latitude || !longitude) {
-      setError('Location is required');
+      setError('Please get your location first');
       return;
     }
-    console.log(latitude, longitude);
-    setIsLoader(true);
-    setDataIndeks(null);
-    setForecastData(null);
-    setError(null);
 
+    setLoading(true);
     try {
       const result = await getDataIndeks(latitude, longitude);
-      setDataIndeks(result);
-
+      
       const selectedDate = formState.selectedDate;
       const selectedHour = parseInt(formState.selectedHour, 10);
 
       const forecast = result.forecast.find((item) => {
         const forecastDate = new Date(item.time);
         const forecastDateString = forecastDate.toISOString().split('T')[0];
-        const forecastHour = (forecastDate.getUTCHours() + 7) % 24; // Convert to WIB
+        const forecastHour = (forecastDate.getUTCHours() + 7) % 24;
 
         return forecastDateString === selectedDate && forecastHour === selectedHour;
       });
 
-      if (forecast) {
-        setForecastData(forecast);
-      } else {
-        setError('Forecast data not found for selected date and time.');
+      if (!forecast) {
+        throw new Error('No forecast data available for selected time');
       }
 
-      setIsLoader(false);
-    } catch {
-      setError('Failed to fetch indeks data');
+      setUVData({
+        now: result.now,
+        forecast: forecast
+      });
+      setError(null);
+    } catch (error) {
+      setError(error.message || 'Failed to fetch UV index data');
+    } finally {
+      setLoading(false);
     }
   };
 
-  const formatWIBTime = (utcTime) => {
-    const localTime = new Date(utcTime);
-    localTime.setHours(localTime.getUTCHours() + 7);
-    return localTime.toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
-  };
+  // Get today's date in YYYY-MM-DD format for min date
+  const today = new Date().toISOString().split('T')[0];
+  
+  // Get date 7 days from now for max date
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + 4);
+  const maxDateString = maxDate.toISOString().split('T')[0];
 
   return (
-    <div className="flex flex-row justify-center items-start px-48 py-20 ">
-  {/* Form untuk Cek UV Index */}
-  <div className="w-1/2 ">
-    <form onSubmit={handleSubmit} className="p-20 bg-white rounded  w-full ">
-      <h2 className="text-2xl font-semibold mb-4 animate-bounce">Click to see your location</h2>
+    <div className="w-1/2 pt-20" data-aos="fade-right">
+      <form onSubmit={handleSubmit} className="p-20 bg-[#415A77] dark:bg-[#1b263b] rounded-lg shadow-lg w-full">
+        <h2 className="text-2xl font-semibold mb-6 text-center text-white">
+          Cek UV Index di lokasi kamu!
+        </h2>
 
-      <button
-        type="button"
-        onClick={getLocation}
-        className="Btn mb-4 mx-auto justify-center flex"
-      >
-        <div className="sign"><FontAwesomeIcon icon= {faMapLocationDot} /></div>
-        
-        <div className="text">Check </div>
-      </button>
-
-      {locationName ? (
-        <p className="text-gray-700 mb-4">Location: {locationName}</p>
-      ) : (
-        <p className="text-red-500 mb-4">{error}</p>
-      )}
-
-      <div className="mb-4">
-        <label htmlFor="date" className="block text-gray-700 font-medium mb-2">Pilih Tanggalsss</label>
-        <input
-          type="date"
-          id="date"
-          name="selectedDate"
-          value={formState.selectedDate}
-          onChange={handleInputChange}
-          className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
-        />
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="hour" className="block text-gray-700 font-medium mb-2">Pilih Waktu</label>
-        <select
-          id="hour"
-          name="selectedHour"
-          value={formState.selectedHour}
-          onChange={handleInputChange}
-          className="block w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-          required
+        <button
+          type="button"
+          onClick={handleGetLocation}
+          className="Btn mb-6 mx-auto flex items-center justify-center bg-[#FFE500] dark:bg-[#CBC333] hover:bg-[#fff533] dark:hover:bg-[#FFE500] "
         >
-          <option value="" disabled>Pilih jam</option>
-          {[...Array(24)].map((_, index) => (
-            <option key={index} value={index}>{index}:00</option>
-          ))}
-        </select>
-      </div>
-
-      <button
-        type="submit"
-        className="w-full bg-yellow-600 text-white font-semibold py-2 px-4 rounded hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-yellow-500"
-      >
-        Submit
-      </button>
-    </form>
-  </div>
-
-  {/* Data INDEKS UV dan Forecast */}
-  <div className="w-full p-6 bg-slate-100 min-h-96  ">
-    <div className=' min-h-56 max-h-56'>
-      <h2 className="text-xl font-bold">Data INDEKS UV</h2>
-      {isLoader ? (
-        <div className="loader mx-auto mt-12"></div>
-      ) : (
-        dataIndeks?.now ? (
-          <div className="flex flex-row justify-between">
-            <div className='bg-slate-100 w-3/4' data-aos="fade-up">
-            <ul className="list-disc pl-4">
-              <li><strong>Current Time:</strong> {formatWIBTime(dataIndeks.now.time)}</li>
-              <li><strong>Current UVI:</strong> {dataIndeks.now.uvi}</li>
-            </ul>
-            <p className='text-xl w-full'>uv index saat ini cukup berbahaya Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, autasdasdasdasdasdasdasd.</p>
-            </div>
-            <div className=' w-1/4' data-aos="fade-left"> 
-              <img src='sun.png' alt="UV Index" className="mx-auto mt-4 w-40" />
-            </div>
+          <div className="sign">
+            <FontAwesomeIcon icon={faMapLocationDot} className="text-lg " />
           </div>
-        ) : (
-          <p className="text-gray-500">Tidak ada data terkini</p>
+          <div className="text">Check</div>
+        </button>
+      <div className='min-h-20'>
+        {locationName && (
+          <div className="mb-6 p-4 bg-green-50 rounded-lg" data-aos="fade-right">
+            <p className="text-green-700 font-medium">
+              📍 {locationName}
+            </p>
+          </div>
         )
-      )}
-      
-      
-    </div>
-  <div className=' min-h-56 max-h-56' >
-    <h2 className="text-xl font-bold mt-4 ">Forecast Data</h2>
-    {isLoader ? (
-        <div className="loader mx-auto mt-12"></div>
-      ) : (forecastData ? (
-        <div className="flex flex-row justify-between">
-            <div className='bg-slate-100 w-3/4' data-aos="fade-up">
-      <ul className="list-disc pl-4">
-        <li><strong>Forecast Time:</strong> {formatWIBTime(forecastData.time)}</li>
-        <li><strong>Forecast UVI:</strong> {forecastData.uvi}</li>
-      </ul>
-      <p className='text-xl w-full'>uv index saat ini cukup berbahaya Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, autasdasdasdasdasdasdasd.</p>
-            </div>
-            <div className=' w-1/4' data-aos="fade-left"> 
-              <img src='sun.png' alt="UV Index" className="mx-auto mt-4 w-40" />
-            </div>
-          </div>
-    ) : (
-      <p className="text-gray-500">Tidak ada Data Ramalan</p>
-    ))}
-    
-    </div>
-  </div>
-</div>
+        
+        }
 
+        {error && (
+          <div className="mb-6 p-4 bg-red-50 rounded-lg" data-aos="fade-right">
+            <p className="text-red-600">
+              ⚠️ {error}
+            </p>
+          </div>
+        )}
+        </div>
+        <div className="mb-6">
+          <label 
+            htmlFor="date" 
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Select Date
+          </label>
+          <input
+            type="date"
+            id="date"
+            name="selectedDate"
+            value={formState.selectedDate}
+            onChange={handleInputChange}
+            min={today}
+            max={maxDateString}
+            className="block w-full p-3 border border-gray-300 rounded-lg 
+                     focus:outline-none focus:ring-2 focus:ring-yellow-500 
+                     focus:border-transparent transition-all duration-200"
+            required
+          />
+        </div>
+
+        <div className="mb-8">
+          <label 
+            htmlFor="hour" 
+            className="block text-gray-700 font-medium mb-2"
+          >
+            Select Time
+          </label>
+          <select
+            id="hour"
+            name="selectedHour"
+            value={formState.selectedHour}
+            onChange={handleInputChange}
+            className="block w-full p-3 border border-gray-300 rounded-lg
+                     focus:outline-none focus:ring-2 focus:ring-yellow-500
+                     focus:border-transparent transition-all duration-200
+                     appearance-none bg-white"
+            required
+          >
+            <option value="" disabled>Choose hour</option>
+            {[...Array(24)].map((_, index) => (
+              <option key={index} value={index}>
+                {index.toString().padStart(2, '0')}:00
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-[#FFE500] dark:bg-[#CBC333] hover:bg-[#fff533] dark:hover:bg-[#FFE500] text-black font-semibold py-3 px-6 
+                   rounded-lg  focus:outline-none 
+                   focus:ring-2  focus:ring-offset-2 
+                   transition-all duration-200 transform hover:scale-[1.02]"
+        >
+          Check UV Index
+        </button>
+      </form>
+    </div>
   );
 };
 
