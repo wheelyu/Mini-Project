@@ -19,7 +19,7 @@ const Navbar = (props) => {
   };
 
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-[#415A77] text-sm py-3 dark:bg-[#1b263b] transition-all duration-300">
+    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-[#415A77] text-sm py-3 dark:bg-[#1b263b] transition-all duration-300 fixed z-50">
 
       <nav className="max-w-[100rem] w-full mx-auto px-10 flex flex-wrap basis-full items-center justify-between">
 
