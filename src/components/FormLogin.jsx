@@ -11,7 +11,7 @@ function FormLogin() {
     ]
     useEffect(() => {
       if (localStorage.getItem("status") == "true") {
-        navigate('/dashboard')
+        navigate('/admin/dashboard')
       }
     })
     function handleSubmit(e) {
