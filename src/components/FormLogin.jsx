@@ -25,14 +25,14 @@ function FormLogin() {
         localStorage.setItem("role", "admin");
         localStorage.setItem("token", "ey....");
         alert("selamat datang " + users[0].username);
-        navigate('/dashboard')
+        navigate('/admin/dashboard')
       } else if (username == users[1].username && password == users[1].password) {
         // akan di arahkan ke halaman user
         localStorage.setItem("status", "true");
         localStorage.setItem("role", "user");
         localStorage.setItem("token", "ey....");
         alert("selamat datang " + users[1].username);
-        navigate('/dashboard')
+        navigate('/admin/dashboard')
         
       }else{
         alert("login gagal");
