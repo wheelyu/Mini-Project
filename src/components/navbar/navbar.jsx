@@ -31,6 +31,7 @@ const Navbar = (props) => {
           
         </a>
         <div className="sm:order-3 flex items-center gap-x-2">
+        <Link to="/login" className="font-medium px-4 py-2 text-white rounded-md hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300">Log in</Link>
           <label className="switch">
             <input type="checkbox" onChange={toggleDarkMode} checked={localStorage.getItem('theme') === 'dark' ? true : false} />
             <span className="slider" />
