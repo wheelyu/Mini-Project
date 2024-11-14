@@ -1,9 +1,9 @@
 // src/components/About.jsx
 import React, { useEffect, useState } from 'react';
-import Navbar from '../components/navbar/navbar';
-import InputField from '../components/inputField/InputField';
-import UVIndexDisplay from '../components/IndexUV';
-import ForecastDisplay from '../components/Forecast';
+import Navbar from '../../components/navbar/navbar';
+import InputField from '../../components/inputField/InputField';
+import UVIndexDisplay from '../../components/IndexUV';
+import ForecastDisplay from '../../components/Forecast';
 const About = () => {
 
 

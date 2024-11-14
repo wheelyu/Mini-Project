@@ -19,7 +19,7 @@ const Navbar = (props) => {
   };
 
   return (
-    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-[#415A77] text-sm py-3 dark:bg-[#1b263b] transition-all duration-300 fixed z-50">
+    <header className="flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-[#415A77] text-sm py-3 dark:bg-[#1b263b] transition-all duration-300 fixed z-50 shadow-2xl">
 
       <nav className="max-w-[100rem] w-full mx-auto px-10 flex flex-wrap basis-full items-center justify-between">
 
@@ -50,10 +50,10 @@ const Navbar = (props) => {
               Home
             </Link>
             <Link
-              className={`font-medium px-4 py-2 text-white rounded-md ${props.active === 'about' ? 'bg-[#1b263b]  rounded-md dark:bg-[#415A77]' : ' hover:bg-[#1b263b]  dark:hover:bg-[#415A77] transition-all duration-300'}`}
-              to="#"
+              className={`font-medium px-4 py-2 text-white rounded-md ${props.active === 'article' ? 'bg-[#1b263b]  rounded-md dark:bg-[#415A77]' : ' hover:bg-[#1b263b]  dark:hover:bg-[#415A77] transition-all duration-300'}`}
+              to="/article"
             >
-              About
+              Article
             </Link>
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${props.active === 'check' ? 'bg-[#1b263b]  rounded-md dark:bg-[#415A77]' : ' hover:bg-[#1b263b]  dark:hover:bg-[#415A77] transition-all duration-300'}`}
