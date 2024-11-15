@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow pl-64">
         <Header />
         <main className="p-6 bg-gray-100 flex-grow overflow-y-auto">
           <h2 className="text-2xl font-semibold mb-4">Dashboard Overview</h2>

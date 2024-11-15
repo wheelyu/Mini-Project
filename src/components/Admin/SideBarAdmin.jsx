@@ -13,7 +13,7 @@ const Sidebar = () => {
     window.location.href = "/";
 };
   return (
-    <div className="bg-gray-800 h-screen w-64 text-white flex flex-col">
+    <div className="bg-gray-800 h-screen w-64 text-white flex flex-col fixed">
       <h2 className="text-2xl font-semibold p-4 border-b border-gray-700">Admin Dashboard</h2>
       <nav className="mt-4 flex flex-col space-y-2 px-4">
         <Link to="/admin/dashboard" className="flex items-center p-2 hover:bg-gray-700 rounded-md">

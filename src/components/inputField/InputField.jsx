@@ -5,8 +5,7 @@ import {getDataIndeks} from '../../services/indeksAPI';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import useStore from '../../store/useUVStore';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 import './inputField.css';
 
 const SelectForm = () => {
@@ -25,12 +24,7 @@ const SelectForm = () => {
     setUVData 
   } = useStore();
 
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
+
 
   const handleInputChange = (e) => {
     setFormState({ ...formState, [e.target.name]: e.target.value });

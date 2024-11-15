@@ -43,7 +43,7 @@ function Article() {
   return (
     <div className="flex h-screen bg-gray-100">
       <Sidebar />
-      <div className="flex flex-col flex-grow">
+      <div className="flex flex-col flex-grow pl-64">
         <Header />
         <div className="p-4">
           <h1 className="text-2xl font-bold mb-4 w-3/4 justify-start mx-auto">Daftar Artikel</h1>

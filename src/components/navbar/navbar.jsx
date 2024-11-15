@@ -1,10 +1,18 @@
 // components/Navbar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './navbar.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 const Navbar = (props) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+  }, []);
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
     if (isDarkMode) {
