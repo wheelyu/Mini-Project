@@ -39,37 +39,52 @@ function FormLogin() {
       }
     }
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white border rounded-lg shadow-lg">
-        <h2 className="text-2xl font-bold text-center text-gray-700">Login</h2>
-        <form className="space-y-4" onSubmit={handleSubmit}> 
-          <div>
-            <label className="block text-sm font-medium text-gray-600">username</label>
-            <input
-              type="text"
-              className="w-full px-3 py-2 mt-1 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="you@example.com"
-              onChange={(e) => setUsername(e.target.value)}
-            />
+    <>
+      {/* source:https://codepen.io/owaiswiz/pen/jOPvEPB */}
+      <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+        <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
+          <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
+            <div>
+              <h1 className="text-2xl font-bold leading-tight">Login</h1>
+            </div>
+            <div className="mt-12 flex flex-col items-center">
+              <div className="w-full flex-1 mt-8">
+                <div className="mx-auto max-w-xs">
+                  <input
+                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                    type="text"
+                    placeholder="Username"
+                    onChange={(e) => setUsername(e.target.value)}
+                  />
+                  <input
+                    className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                    type="password"
+                    placeholder="Password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                  <button className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                    onClick={handleSubmit}>
+                    
+                    <span className="ml-">Sign In</span>
+                  </button>
+                  
+                </div>
+              </div>
+            </div>
           </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-600">Password</label>
-            <input
-              type="password"
-              className="w-full px-3 py-2 mt-1 text-sm border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              placeholder="Your password"
-              onChange={(e) => setPassword(e.target.value)}
-            />
+          <div className="flex-1 bg-green-100 text-center hidden lg:flex">
+            <div
+              className="m-12 xl:m-16 w-full bg-contain bg-center bg-no-repeat"
+              style={{
+                backgroundImage:
+                  'url("https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80")',
+              }}
+            ></div>
           </div>
-          <button
-            type="submit"
-            className="w-full py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-          >
-            Sign In
-          </button>
-        </form>
+        </div>
       </div>
-    </div>
+    </>
+
   );
 }
 
