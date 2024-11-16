@@ -3,17 +3,19 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <header className="bg-white shadow flex items-center justify-between p-4">
-      <h1 className="text-xl font-bold">Dashboard</h1>
-      <div className="flex items-center space-x-4">
-        <span>Welcome, Admin</span>
-        <img
-          src="https://via.placeholder.com/40"
-          alt="Profile"
-          className="w-10 h-10 rounded-full"
-        />
-      </div>
-    </header>
+            
+            <header className="bg-white p-4 shadow">
+            <div className="flex items-center justify-between">
+              <h1 className="text-2xl font-bold text-gray-800">Dashboard</h1>
+              <div className="flex items-center space-x-4">
+                
+                <div className="flex items-center space-x-2">
+                  <img src="../../sun1.png"  className="h-8 w-8 rounded-full" />
+                  <span className="font-medium">Welcome, Admin</span>
+                </div>
+              </div>
+            </div>
+          </header>
   );
 };
 

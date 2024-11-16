@@ -12,7 +12,7 @@ export default function ArticlePage() {
             <h1 className="text-4xl font-bold text-gray-800 dark:text-white py-10">Artikel terkait uv index</h1>
             <ListArticle />
             </div>
-            <div className="w-full  pt-32 ">
+            <div className="w-full   ">
                 <Footer />
             </div>
         <StickyCtaButton />

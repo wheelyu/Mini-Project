@@ -1,10 +1,17 @@
 // Sidebar.jsx
-import React from 'react';
-
+import React, { useState } from 'react';
+import useStore from '../../store/sideBarStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome, faUser, faStreetView, faSignOut } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faUser, faNewspaper, faSignOut, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
+
 const Sidebar = () => {
+  const { isOpen, toggleSidebar } = useStore();
+  const menuItems = [
+    { title: 'Dashboard', icon: faHome, path: '/admin/dashboard' },
+
+    { title: 'Articles', icon: faNewspaper, path: '/admin/article' },
+  ];
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
@@ -13,23 +20,40 @@ const Sidebar = () => {
     window.location.href = "/";
 };
   return (
-    <div className="bg-gray-800 h-screen w-64 text-white flex flex-col fixed">
-      <h2 className="text-2xl font-semibold p-4 border-b border-gray-700">Admin Dashboard</h2>
-      <nav className="mt-4 flex flex-col space-y-2 px-4">
-        <Link to="/admin/dashboard" className="flex items-center p-2 hover:bg-gray-700 rounded-md">
-          <FontAwesomeIcon icon={faHome} className="mr-3" /> Dashboard
-        </Link>
-        <a href="#" className="flex items-center p-2 hover:bg-gray-700 rounded-md">
-          <FontAwesomeIcon icon={faUser} className="mr-3" /> Users
-        </a>
-        <a href="#" className="flex items-center p-2 hover:bg-gray-700 rounded-md">
-          <FontAwesomeIcon icon={faStreetView} className="mr-3" /> Settings
-        </a>
-      </nav>
-      <div className="mt-auto p-4">
-        <button className="flex items-center w-full p-2 text-red-500 hover:bg-gray-700 rounded-md" onClick={handleLogout}>
-          <FontAwesomeIcon icon={faSignOut} className="mr-3" /> Logout
-        </button>
+    <div className={`fixed left-0 top-0 h-screen bg-gray-900 text-white transition-all duration-300 ease-in-out ${isOpen ? 'w-64' : 'w-20'}`}>
+      <div className="flex h-full flex-col">
+        {/* Header */}
+        <div className="flex h-20 items-center justify-between px-4">
+          <h1 className={`text-xl font-bold ${!isOpen && 'hidden'}`} >Admin Panel</h1>
+          <button
+            onClick={toggleSidebar}
+            className="rounded-lg p-2 hover:bg-gray-800"
+          >
+            <FontAwesomeIcon icon={faChevronCircleLeft} className={`h-6 w-6 transition-transform duration-300 ${!isOpen && 'rotate-180'}`} />
+          </button>
+        </div>
+
+        {/* Navigation */}
+        <nav className="flex-1 space-y-2 p-4">
+          {menuItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="flex items-center rounded-lg p-3 text-gray-300 transition-colors hover:bg-gray-800 hover:text-white"
+            >
+              <FontAwesomeIcon icon={item.icon} className="h-6 w-6" />
+              <span className={`ml-4 ${!isOpen && 'hidden'}`}>{item.title}</span>
+            </Link>
+          ))}
+        </nav>
+
+        {/* Footer */}
+        <div className="border-t border-gray-800 p-4">
+          <button className="flex w-full items-center rounded-lg p-3 text-gray-300 transition-colors hover:bg-gray-800 hover:text-white" onClick={handleLogout}>
+            <FontAwesomeIcon icon={faSignOut} className="h-6 w-6" />
+            <span className={`ml-4 ${!isOpen && 'hidden'}`}>Logout</span>
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -29,7 +29,7 @@ const Carousel = () => {
       data-aos="fade-right" data-aos-delay="200"
     >
       <SwiperSlide>
-        <div className="carousel-item bg-white dark:text-white dark:bg-gray-900 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
+        <div className="carousel-item bg-white dark:text-white dark:bg-gray-800 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
         <h1 className="text-2xl font-bold  mb-4 text-center py-3">Low</h1>
           <img src="sun1.png" alt="Slide 1" className="rounded-lg w-40 justify-center mx-auto" />
           <p className=' text-xl font-bold px-5 text-center '>0-2</p>
@@ -37,7 +37,7 @@ const Carousel = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="carousel-item bg-white dark:text-white dark:bg-gray-900 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
+        <div className="carousel-item bg-white dark:text-white dark:bg-gray-800 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
         <h1 className="text-2xl font-bold mb-4 text-center py-3">Medium</h1>
           <img src="sun2.png" alt="Slide 1" className="rounded-lg w-40 justify-center mx-auto" />
           <p className=' text-xl font-bold px-5 text-center '>3-5</p>
@@ -45,7 +45,7 @@ const Carousel = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="carousel-item bg-white dark:text-white dark:bg-gray-900 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
+        <div className="carousel-item bg-white dark:text-white dark:bg-gray-800 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
         <h1 className="text-2xl font-bold mb-4 text-center py-3">High</h1>
           <img src="sun3.png" alt="Slide 1" className="rounded-lg w-40 justify-center mx-auto" />
           <p className=' text-xl font-bold px-5 text-center '>6-7</p>
@@ -53,7 +53,7 @@ const Carousel = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="carousel-item bg-white dark:text-white dark:bg-gray-900 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
+        <div className="carousel-item bg-white dark:text-white dark:bg-gray-800 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
         <h1 className="text-2xl font-bold mb-4 text-center py-3">Very High</h1>
           <img src="sun4.png" alt="Slide 1" className="rounded-lg w-40 justify-center mx-auto" />
           <p className=' text-xl font-bold px-5 text-center '>8-10</p>
@@ -61,14 +61,13 @@ const Carousel = () => {
         </div>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="carousel-item bg-white dark:text-white dark:bg-gray-900 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
+        <div className="carousel-item bg-white dark:text-white dark:bg-gray-800 shadow-lg mb-5 rounded-lg min-h-96 scale-90 hover:scale-100 transition-all duration-300">
         <h1 className="text-2xl font-bold mb-4 text-center py-3">Extremely High</h1>
           <img src="sun5.png" alt="Slide 1" className="rounded-lg w-40 justify-center mx-auto" />
           <p className=' text-xl font-bold px-5 text-center '>11+</p>
           <p className='px-5 text-justify'>Matahari sangat berbahaya. Wajib pelindung lengkap, dan hindari keluar jika memungkinkan.</p>
         </div>
       </SwiperSlide>
-      {/* Tambahkan slide lainnya jika diperlukan */}
     </Swiper>
     </div>
     );

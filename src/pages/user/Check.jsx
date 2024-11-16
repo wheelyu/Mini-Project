@@ -18,7 +18,7 @@ const About = () => {
         <ForecastDisplay />
       </div>
     </div>
-    <div className="w-full  pt-32 ">
+    <div className="w-full  ">
         <Footer />
       </div>
     </div>
