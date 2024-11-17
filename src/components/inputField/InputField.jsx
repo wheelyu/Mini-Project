@@ -141,7 +141,7 @@ const SelectForm = () => {
             htmlFor="date" 
             className="block text-white font-medium mb-2"
           >
-            Select Date
+            Pilih Tanggal
           </label>
           <input
             type="date"
@@ -163,7 +163,7 @@ const SelectForm = () => {
             htmlFor="hour" 
             className="block text-white font-medium mb-2"
           >
-            Select Time
+            Pilih Waktu
           </label>
           <select
             id="hour"

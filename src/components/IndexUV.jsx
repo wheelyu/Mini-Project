@@ -11,21 +11,19 @@ const UVIndexDisplay = () => {
     const generateResponse = async () => {
         setAIResponse('');
       if (currentData) {
-       
         const Data = 'uvi saat ini ' + currentData.uvi + 'pada tanggal dan waktu:' + formatWIBTime(currentData.time);
         console.log(Data);
         try {
           const response = await getResponse(Data);
-          setAIResponse(response); // Set the AI response in the state
+          setAIResponse(response); 
           console.log("AI Response:", response);
         } catch (error) {
           console.error("Error generating AI response:", error);
         }
       }
     };
-    
     generateResponse();
-  }, [currentData]);
+  }, [currentData]); // Menjalankan effect setiap kali currentData berubah
 
   return (
     <div className="min-h-56 max-h-56 dark:text-white" data-aos="fade-left">

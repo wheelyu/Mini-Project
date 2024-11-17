@@ -1,6 +1,7 @@
 // Header.jsx
 import React from 'react';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser';
 const Header = () => {
   return (
             
@@ -10,7 +11,7 @@ const Header = () => {
               <div className="flex items-center space-x-4">
                 
                 <div className="flex items-center space-x-2">
-                  <img src="../../sun1.png"  className="h-8 w-8 rounded-full" />
+                  <FontAwesomeIcon icon={faUser} className="text-gray-600" />
                   <span className="font-medium">Welcome, Admin</span>
                 </div>
               </div>

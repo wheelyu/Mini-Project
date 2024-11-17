@@ -7,7 +7,7 @@ import 'swiper/css/bundle';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 const Carousel = () => {
     return (
-        <div className="bg-[#415A77] dark:bg-[#1b263b] max-h-[100rem]">
+        <div className="bg-[#415A77] dark:bg-[#1b263b] max-h-[100rem]" id="uv-index">
             <h1 className="text-4xl font-bold text-white mb-4 max-w-[100rem] w-full mx-auto px-10 pt-10" data-aos="fade-right">UV Index</h1>
             <p className="text-xl font-bold text-white mb-4 max-w-[100rem] w-full mx-auto px-10 pt-10 text-justify" data-aos="fade-right">
                 Angka yang menunjukkan tingkat radiasi ultraviolet (UV) matahari yang mencapai permukaan bumi. Semakin tinggi 

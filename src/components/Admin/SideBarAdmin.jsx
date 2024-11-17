@@ -4,7 +4,7 @@ import useStore from '../../store/sideBarStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faUser, faNewspaper, faSignOut, faChevronCircleLeft } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-
+import Swal from 'sweetalert2';
 const Sidebar = () => {
   const { isOpen, toggleSidebar } = useStore();
   const menuItems = [
@@ -16,7 +16,11 @@ const Sidebar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("status");
-    alert("Logout successfully");
+    Swal.fire({
+      icon: 'success',
+      title: 'Logout Berhasil',
+
+    })
     window.location.href = "/";
 };
   return (

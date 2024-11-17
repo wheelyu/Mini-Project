@@ -4,6 +4,7 @@ import useStore from '../../store/sideBarStore';
 import Header from "../../components/Admin/Header";
 import { supabase } from "../../SupabaseConfig";
 import { useNavigate } from "react-router-dom";
+import { formatWIBTime } from "../../helper/FormatTime";
 import Swal from 'sweetalert2';
 function ArticleList() {
   const { isOpen: sidebarOpen } = useStore();
@@ -102,16 +103,7 @@ function ArticleList() {
         return strippedContent.substring(0, maxLength) + '...';
     };
 
-    // Fungsi untuk format tanggal
-    const formatDate = (dateString) => {
-        return new Date(dateString).toLocaleDateString('id-ID', {
-            day: 'numeric',
-            month: 'long',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit'
-        });
-    };
+
 
     return (
         <div className="flex h-screen bg-gray-100">
@@ -147,6 +139,9 @@ function ArticleList() {
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Tanggal Dibuat
+                                    </th>
+                                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Visitor
                                     </th>
                                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Aksi
@@ -188,7 +183,10 @@ function ArticleList() {
                                                 )}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                {formatDate(article.created_at)}
+                                                {formatWIBTime(article.created_at)}
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
+                                                {article.visitor_count}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex space-x-2">

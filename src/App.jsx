@@ -7,6 +7,7 @@ import ProtectedRoute from './ProtectedRoute';
 import Article from "./pages/admin/Article";
 import AddArticle from "./pages/admin/AddArticle";
 import ArticlePage from "./pages/user/ArticlePage";
+import Page from "./pages/user/Page";
 import EditArticle from "./pages/admin/EditArticle";
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/article" element={<ArticlePage />} />
+        <Route path="/page/:id" element={<Page />} />
         <Route path="/check" element={<Check />} />
         <Route path="/login" element={<Login />} />
         <Route element={<ProtectedRoute />}>

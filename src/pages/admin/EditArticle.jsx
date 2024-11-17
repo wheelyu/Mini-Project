@@ -107,7 +107,7 @@ function EditArticle() {
             }
 
             // Update data artikel
-            const { data, error } = await supabase
+            const {  error } = await supabase
                 .from('article')
                 .update({
                     title,
@@ -173,7 +173,7 @@ function EditArticle() {
                             <CKEditor
                                 editor={ClassicEditor}
                                 data={content}
-                                onChange={(event, editor) => {
+                                onChange={(event,editor) => {
                                     const data = editor.getData();
                                     setContent(data);
                                 }}

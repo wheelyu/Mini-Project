@@ -25,7 +25,7 @@ const LandingPage = () => {
                 Check UV kamu!
             </Link>
             <a
-                href="#get-started"
+                href="#uv-index"
                 className="inline-block px-6 py-3 rounded-lg bg-white text-gray-800 font-semibold shadow-md hover:bg-gray-300 focus:bg-gray-400 focus:outline-none dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 dark:focus:bg-gray-500 duration-300 transition-all"
             >
                 UV Index
