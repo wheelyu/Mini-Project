@@ -101,7 +101,7 @@ const SelectForm = () => {
   const maxDateString = maxDate.toISOString().split('T')[0];
 
   return (
-    <div className="w-1/2 pt-20" data-aos="fade-right">
+    <div className="w-full md:w-1/2 pt-20" data-aos="fade-right">
       <form onSubmit={handleSubmit} className="p-20 bg-[#415A77] dark:bg-[#1b263b] rounded-lg shadow-lg w-full">
         <h2 className="text-2xl font-semibold mb-6 text-center text-white">
           Cek UV Index di lokasi kamu!

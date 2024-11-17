@@ -11,9 +11,9 @@ const About = () => {
   return (
     <div >
       <Navbar active="check"/>
-      <div className="flex flex-row justify-center items-start px-48 py-20 bg-[efefef] dark:bg-gray-900 duration-300 transition-all h-screen">
+      <div className="flex flex-col md:flex-row justify-center items-start px-5 md:px-48 py-20 bg-[efefef] dark:bg-gray-900 duration-300 transition-all h-fit">
       <InputField />
-      <div className="w-full p-6 bg-slate-100 dark:bg-slate-800 min-h-96 duration-300 transition-all mt-40" >
+      <div className="w-full p-6 px-10 bg-slate-100 rounded-lg dark:bg-slate-800 min-h-96 duration-300 transition-all mt-0 md:mt-40" >
         <UVIndexDisplay />
         <ForecastDisplay />
       </div>

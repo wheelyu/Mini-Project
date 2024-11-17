@@ -94,7 +94,7 @@ const ViewArticle = () => {
                                 </p>
                             )}
                             <div className="flex items-center gap-1 text-sm text-gray-500 dark:text-gray-300">
-                                <FontAwesomeIcon icon={faEye} size={16} />
+                                <FontAwesomeIcon icon={faEye}  />
                                 <span>{visitorCount} views</span>
                             </div>
                         </div>
