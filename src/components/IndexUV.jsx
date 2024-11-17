@@ -26,7 +26,7 @@ const UVIndexDisplay = () => {
   }, [currentData]); // Menjalankan effect setiap kali currentData berubah
 
   return (
-    <div className="min-h-56 max-h-56 dark:text-white" data-aos="fade-left">
+    <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white" data-aos="fade-left">
       <h2 className="text-xl font-bold">Indeks UV hari ini</h2>
       {isLoading ? (
         <div className="loader mx-auto mt-12"></div>
