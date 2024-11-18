@@ -28,7 +28,7 @@
 }
 
 .sign svg path {
-  fill: black;
+  fill: white;
 }
 /* text */
 .text {
@@ -36,7 +36,7 @@
   right: 0%;
   width: 0%;
   opacity: 0;
-  color: black;
+  color: white;
   font-size: 15px;
   font-weight: 600;
   transition-duration: 0.3s;

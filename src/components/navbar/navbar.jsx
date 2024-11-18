@@ -33,24 +33,22 @@ const Navbar = (props) => {
   };
 
   return (
-    <header className="w-full bg-[#415A77] text-sm py-3 dark:bg-[#1b263b] transition-all duration-300 fixed z-50 shadow-2xl">
+    <header className="w-full bg-[#588157] text-sm py-3 dark:bg-[#344E41] transition-all duration-300 fixed z-50 shadow-2xl">
       <nav className="max-w-[100rem] w-full mx-auto px-4 md:px-10">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <a
-            className="flex-none text-xl font-semibold text-white focus:outline-none focus:opacity-80 w-32 h-16"
-            href="#"
-          >
-            <p className='text-3xl'>LacakUV</p>
-          </a>
+            <div className="flex items-center space-x-2">
+            <p className='flex-none text-xl  font-semibold text-white focus:outline-none focus:opacity-80 '>Lacak</p>
+            <p className='text-yellow-500 text-3xl font-bold italic'>UV</p>
+            </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
+          <div className="hidden md:flex items-center space-x-4 py-5">
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${
                 props.active === 'home' 
-                  ? 'bg-[#1b263b] dark:bg-[#415A77]' 
-                  : 'hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300'
+                  ? 'bg-[#344E41] dark:bg-[#263a30]' 
+                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300'
               }`}
               to="/"
             >
@@ -59,8 +57,8 @@ const Navbar = (props) => {
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${
                 props.active === 'article' 
-                  ? 'bg-[#1b263b] dark:bg-[#415A77]' 
-                  : 'hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300'
+                 ? 'bg-[#344E41] dark:bg-[#263a30]' 
+                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300'
               }`}
               to="/article"
             >
@@ -69,8 +67,8 @@ const Navbar = (props) => {
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${
                 props.active === 'check' 
-                  ? 'bg-[#1b263b] dark:bg-[#415A77]' 
-                  : 'hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300'
+                 ? 'bg-[#344E41] dark:bg-[#263a30]' 
+                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300'
               }`}
               to="/check"
             >
@@ -82,7 +80,7 @@ const Navbar = (props) => {
           <div className="flex items-center space-x-4">
             <Link 
               to="/login" 
-              className="hidden md:block font-medium px-4 py-2 text-white rounded-md hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300"
+              className="hidden md:block font-medium px-4 py-2 text-white rounded-md hover:bg-[#344E41] dark:hover:bg-[#588157] transition-all duration-300"
             >
               Log in
             </Link>
@@ -115,8 +113,8 @@ const Navbar = (props) => {
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${
                 props.active === 'home' 
-                  ? 'bg-[#1b263b] dark:bg-[#415A77]' 
-                  : 'hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300'
+                 ? 'bg-[#344E41] dark:bg-[#263a30]' 
+                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300'
               }`}
               to="/"
               onClick={() => setIsMenuOpen(false)}
@@ -126,8 +124,8 @@ const Navbar = (props) => {
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${
                 props.active === 'article' 
-                  ? 'bg-[#1b263b] dark:bg-[#415A77]' 
-                  : 'hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300'
+                 ? 'bg-[#344E41] dark:bg-[#263a30]' 
+                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300'
               }`}
               to="/article"
               onClick={() => setIsMenuOpen(false)}
@@ -137,8 +135,8 @@ const Navbar = (props) => {
             <Link
               className={`font-medium px-4 py-2 text-white rounded-md ${
                 props.active === 'check' 
-                  ? 'bg-[#1b263b] dark:bg-[#415A77]' 
-                  : 'hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300'
+                 ? 'bg-[#344E41] dark:bg-[#263a30]' 
+                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300'
               }`}
               to="/check"
               onClick={() => setIsMenuOpen(false)}
@@ -147,7 +145,7 @@ const Navbar = (props) => {
             </Link>
             <Link
               to="/login"
-              className="font-medium px-4 py-2 text-white rounded-md hover:bg-[#1b263b] dark:hover:bg-[#415A77] transition-all duration-300"
+              className="font-medium px-4 py-2 text-white rounded-md hover:bg-[#344E41] dark:hover:bg-[#263a30] transition-all duration-300"
               onClick={() => setIsMenuOpen(false)}
             >
               Log in

@@ -38,16 +38,14 @@ const Carousel = () => {
     ];
 
     return (
-        <div className="bg-[#415A77] dark:bg-[#1b263b] py-8 md:py-12 lg:py-16" id="uv-index">
+        <div className="bg-[#588157] dark:bg-[#344E41] py-8 md:py-12 lg:py-16 h-[500px]" id="uv-index">
             <div className="max-w-[90rem] mx-auto px-4 md:px-8 lg:px-10">
-                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4" data-aos="fade-right">
+                <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4">
                     UV Index
                 </h1>
-                <p className="text-base md:text-lg lg:text-xl font-bold text-white mb-8 md:mb-12 text-justify" data-aos="fade-right">
+                <p className="text-base md:text-lg lg:text-xl font-bold text-white mb-8 md:mb-12 text-justify" >
                     Angka yang menunjukkan tingkat radiasi ultraviolet (UV) matahari yang mencapai permukaan bumi. Semakin tinggi 
-                    angkanya, semakin kuat radiasi UV, dan semakin besar risiko kerusakan kulit, mata, serta risiko kanker kulit. 
-                    Indeks ini membantu kita menentukan kapan harus memakai perlindungan, seperti sunscreen, kacamata hitam, dan topi, 
-                    untuk melindungi diri dari paparan sinar UV yang berbahaya.
+                    angkanya, semakin kuat radiasi UV, dan semakin besar risiko kerusakan kulit, mata, serta risiko kanker kulit.
                 </p>
             </div>
 
@@ -71,12 +69,10 @@ const Carousel = () => {
                         spaceBetween: 30,
                     }
                 }}
-                data-aos="fade-right"
-                data-aos-delay="200"
             >
                 {carouselData.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="carousel-item bg-white dark:text-white dark:bg-gray-800 shadow-lg rounded-lg min-h-[24rem] scale-90 hover:scale-100 transition-all duration-300 p-4">
+                        <div className="carousel-item bg-[#344E41] text-white dark:bg-[#263a30] shadow-lg rounded-lg min-h-[24rem] scale-90 transition-all duration-300 p-4">
                             <h1 className="text-xl md:text-2xl font-bold mb-4 text-center py-2">
                                 {item.title}
                             </h1>

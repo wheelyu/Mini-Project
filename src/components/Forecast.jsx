@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { formatWIBTime } from '../helper/FormatTime';
+import { formatWIBTime } from '../hooks/FormatTime';
 import useStore from '../store/useUVStore';
 import { getResponse } from './GeminiAI';
 const ForecastDisplay = () => {
@@ -28,7 +28,7 @@ const ForecastDisplay = () => {
       
     return (
         <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white" data-aos="fade-left">
-        <h2 className="text-xl font-bold mt-4">Forecast Data</h2>
+        <h2 className="text-xl font-bold mt-4">Ramalan UV</h2>
         {isLoading ? (
             <div className="loader mx-auto mt-12"></div>
         ) :

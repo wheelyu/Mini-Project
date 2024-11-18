@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { formatWIBTime } from "../helper/FormatTime";
+import { useParams, Link } from "react-router-dom";
+import { formatWIBTime } from "../hooks/FormatTime";
 import { supabase } from "../SupabaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faArrowAltCircleLeft as ArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 const ViewArticle = () => {
     const [title, setTitle] = useState('');
@@ -66,10 +66,16 @@ const ViewArticle = () => {
     }
 
     return (
-        <div className="max-w-4xl mx-auto px-4 py-8">
-            <div className="bg-white dark:bg-[#1b263b] rounded-lg shadow-lg overflow-hidden">
-                {currentImageUrl && (
-                    <div className="w-full h-64 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-1 py-8">
+            <div className="bg-white dark:bg-[#263a30]  rounded-lg shadow-lg overflow-hidden">
+                <Link to="/article">
+                <div className="flex py-6 items-center ml-4">
+                    <FontAwesomeIcon icon={ArrowLeft} className="text-2xl text-gray-500 dark:text-gray-300 mr-2" />
+                    <p className=" text-sm text-gray-500 dark:text-gray-300"> Kembali</p>
+                    </div>
+                </Link>
+                {currentImageUrl ? (
+                        <div className="w-full h-56 md:h-[30rem] relative overflow-hidden">
                         <img
                             src={currentImageUrl}
                             alt={title}
@@ -80,8 +86,19 @@ const ViewArticle = () => {
                             }}
                         />
                     </div>
-                )}
-                
+                    ):(
+                        <div className="w-full h-56 md:h-96 relative overflow-hidden">
+                        <img
+                            src={currentImageUrl}
+                            alt={title}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                                e.target.src = "/api/placeholder/800/400";
+                                e.target.alt = "Placeholder image";
+                            }}
+                        />
+                    </div>
+                    )}
                 <div className="p-6">
                     <div className="mb-6">
                         <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">

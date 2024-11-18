@@ -4,7 +4,8 @@ import useStore from '../../store/sideBarStore';
 import Header from "../../components/Admin/Header";
 import { supabase } from "../../SupabaseConfig";
 import { useNavigate } from "react-router-dom";
-import { formatWIBTime } from "../../helper/FormatTime";
+import { formatWIBTime } from "../../hooks/FormatTime";
+import { truncateContent } from "../../hooks/Truncates";
 import Swal from 'sweetalert2';
 function ArticleList() {
   const { isOpen: sidebarOpen } = useStore();
@@ -94,15 +95,6 @@ function ArticleList() {
           }
       }
   };
-
-    // Fungsi untuk memotong teks content
-    const truncateContent = (content, maxLength) => {
-        // Hapus tag HTML
-        const strippedContent = content.replace(/<[^>]+>/g, '');
-        if (strippedContent.length <= maxLength) return strippedContent;
-        return strippedContent.substring(0, maxLength) + '...';
-    };
-
 
 
     return (

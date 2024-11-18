@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import Swal from 'sweetalert2';
 
 function FormLogin() {
@@ -93,12 +93,12 @@ function FormLogin() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
+        <div className="min-h-screen bg-gray-100 text-[#588157] flex justify-center">
             <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
                 <div className="lg:w-1/2 xl:w-5/12 p-6 sm:p-12">
                     <div>
                         <Link to="/" className="text-xl font-semibold leading-none uppercase hover:underline">
-                            <FontAwesomeIcon icon={faHome} size='sm'/> Kembali
+                            <FontAwesomeIcon icon={faArrowLeft} size='sm'/> Kembali
                         </Link>
                         <h1 className="text-2xl font-bold leading-tight mt-4">Login</h1>
                     </div>
@@ -150,7 +150,7 @@ function FormLogin() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className={`mt-5 tracking-wide font-semibold bg-[#415A77] text-white w-full py-4 rounded-lg hover:bg-[#1b263b] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none ${
+                                    className={`mt-5 tracking-wide font-semibold bg-[#588157] text-white w-full py-4 rounded-lg hover:bg-[#A3B18A] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none ${
                                         isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                                     }`}
                                 >
@@ -165,7 +165,7 @@ function FormLogin() {
                     </div>
                 </div>
                 <div
-                    className="flex-1 bg-gray-900 text-center hidden lg:flex rounded-lg bg-cover bg-blend-multiply bg-no-repeat"
+                    className="flex-1 bg-[#344E41] text-center hidden lg:flex rounded-lg bg-cover bg-blend-multiply bg-no-repeat"
                     style={{
                         backgroundImage: 'url("bg.jpg")',
                     }}

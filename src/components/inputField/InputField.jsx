@@ -102,7 +102,7 @@ const SelectForm = () => {
 
   return (
     <div className="w-full md:w-1/2 pt-20" data-aos="fade-right">
-      <form onSubmit={handleSubmit} className="p-20 bg-[#415A77] dark:bg-[#1b263b] rounded-lg shadow-lg w-full">
+      <form onSubmit={handleSubmit} className="p-20 bg-[#4a6e5c] dark:bg-[#344E41] rounded-lg shadow-lg w-full">
         <h2 className="text-2xl font-semibold mb-6 text-center text-white">
           Cek UV Index di lokasi kamu!
         </h2>
@@ -110,7 +110,7 @@ const SelectForm = () => {
         <button
           type="button"
           onClick={handleGetLocation}
-          className="Btn mb-6 mx-auto flex items-center justify-center bg-[#FFE500] dark:bg-[#CBC333] hover:bg-[#fff533] dark:hover:bg-[#FFE500] "
+          className="Btn mb-6 mx-auto flex items-center justify-center bg-[#A3B18A] dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] "
         >
           <div className="sign">
             <FontAwesomeIcon icon={faMapLocationDot} className="text-lg " />
@@ -187,7 +187,7 @@ const SelectForm = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#FFE500] dark:bg-[#CBC333] hover:bg-[#fff533] dark:hover:bg-[#FFE500] text-black font-semibold py-3 px-6 
+          className="w-full bg-[#A3B18A] dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] text-black font-semibold py-3 px-6 
                    rounded-lg  focus:outline-none 
                    focus:ring-2  focus:ring-offset-2 
                    transition-all duration-200 transform hover:scale-[1.02]"
