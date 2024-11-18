@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from "../SupabaseConfig";
-import { truncateContent } from '../hooks/Truncates';
+import { truncateContent } from '../hooks/useTruncates';
 import {  Link } from 'react-router-dom';
 const ArticleListCard = (props) => {
     const [articles, setArticles] = useState([]);

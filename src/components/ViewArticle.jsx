@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { formatWIBTime } from "../hooks/FormatTime";
+import { formatWIBTime } from "../hooks/useFormatTime";
 import { supabase } from "../SupabaseConfig";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faArrowAltCircleLeft as ArrowLeft } from "@fortawesome/free-solid-svg-icons";

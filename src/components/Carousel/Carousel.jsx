@@ -79,12 +79,12 @@ const Carousel = () => {
                             <img 
                                 src={item.image} 
                                 alt={`UV Index ${item.title}`} 
-                                className="rounded-lg w-24 md:w-32 lg:w-40 mx-auto"
+                                className="rounded-lg w-40  mx-auto"
                             />
                             <p className="text-lg md:text-xl font-bold px-2 md:px-4 text-center my-3">
                                 {item.range}
                             </p>
-                            <p className="px-2 md:px-4 text-justify text-sm md:text-base">
+                            <p className="px-2 md:px-4 text-justify text-base">
                                 {item.description}
                             </p>
                         </div>
