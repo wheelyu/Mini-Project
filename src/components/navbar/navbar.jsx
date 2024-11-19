@@ -3,19 +3,11 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import './navbar.css';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+
 
 const Navbar = (props) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-  }, []);
 
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);

@@ -20,7 +20,7 @@ const ArticleListCard = (props) => {
         <div className='bg-white dark:bg-[#121212] max-w-[76rem] mx-auto'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
-                <div key={article.id} className="bg-white dark:bg-[#344E41] rounded-lg shadow-2xl overflow-hidden transition-all duration-300" data-aos="fade-up">
+                <div key={article.id} className="bg-white dark:bg-[#344E41] rounded-lg shadow-2xl overflow-hidden transition-all duration-300" >
                     {article.image_url ? (
                         <img
                             src={article.image_url}

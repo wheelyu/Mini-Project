@@ -26,14 +26,14 @@ const ForecastDisplay = () => {
     }, [forecastData]);
       
     return (
-        <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white" data-aos="fade-left">
+        <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white" >
         <h2 className="text-xl font-bold mt-4">Ramalan UV</h2>
         {isLoading ? (
             <div className="loader mx-auto mt-12"></div>
         ) :
         (forecastData ? (
             <div className="flex flex-row justify-between">
-            <div className=" w-3/4" data-aos="fade-up">
+            <div className=" w-3/4" >
                 <ul className="list-disc pl-4">
                 <li><strong>Forecast Time:</strong> {formatWIBTime(forecastData.time)}</li>
                 <li><strong>Forecast UVI:</strong> {forecastData.uvi}</li>
@@ -42,7 +42,7 @@ const ForecastDisplay = () => {
                 {aiResponse || "Memuat respons AI..."} {/* Display AI response or loading text */}
                 </p>
             </div>
-            <div className="w-1/4" data-aos="fade-left">
+            <div className="w-1/4" >
                 <img src={forecastData.uvi <= 2 ? 'sun1.png' : 
                 forecastData.uvi <= 5 ?'sun2.png':
                 forecastData.uvi <= 7 ?'sun3.png':

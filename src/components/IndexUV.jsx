@@ -26,14 +26,14 @@ const UVIndexDisplay = () => {
   }, [currentData]); // Menjalankan effect setiap kali currentData berubah
 
   return (
-    <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white" data-aos="fade-left">
+    <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white">
       <h2 className="text-xl font-bold">Indeks UV hari ini</h2>
       {isLoading ? (
         <div className="loader mx-auto mt-12"></div>
       ) : (
         currentData ? (
           <div className="flex flex-row justify-between">
-            <div className="w-3/4" data-aos="fade-up">
+            <div className="w-3/4" >
               <ul className="list-disc pl-4">
                 <li><strong>Location:</strong> {locationName}</li>
                 <li><strong>Current Time:</strong> {formatWIBTime(currentData.time)}</li>
@@ -43,7 +43,7 @@ const UVIndexDisplay = () => {
                 {aiResponse || "Memuat respons AI..."} {/* Display AI response or loading text */}
               </p>
             </div>
-            <div className="w-1/4" data-aos="fade-left">
+            <div className="w-1/4" >
               <img src={currentData.uvi <= 2 ? 'sun1.png' : 
                 currentData.uvi <= 5 ?'sun2.png':
                 currentData.uvi <= 7 ?'sun3.png':

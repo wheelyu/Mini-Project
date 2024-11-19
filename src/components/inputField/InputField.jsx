@@ -116,7 +116,7 @@ const SelectForm = () => {
   const maxDateString = maxDate.toISOString().split('T')[0];
 
   return (
-    <div className="w-full md:w-1/2 pt-20" data-aos="fade-right">
+    <div className="w-full md:w-1/2 pt-20">
       <form onSubmit={handleSubmit} className="p-20 bg-[#4a6e5c] dark:bg-[#344E41] rounded-lg shadow-lg w-full">
         <h2 className="text-2xl font-semibold mb-6 text-center text-white">
           Cek UV Index di lokasi kamu!
@@ -134,7 +134,7 @@ const SelectForm = () => {
         </button>
       <div className='min-h-20'>
         {locationName && (
-          <div className="mb-6 p-4 bg-green-50 rounded-lg" data-aos="fade-right">
+          <div className="mb-6 p-4 bg-green-50 rounded-lg" >
             <p className="text-green-700 font-medium">
               📍 {locationName}
             </p>
@@ -144,7 +144,7 @@ const SelectForm = () => {
         }
 
         {error && (
-          <div className="mb-6 p-4 bg-red-50 rounded-lg" data-aos="fade-right">
+          <div className="mb-6 p-4 bg-red-50 rounded-lg" >
             <p className="text-red-600">
               ⚠️ {error}
             </p>
