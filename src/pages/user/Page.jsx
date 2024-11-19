@@ -7,10 +7,10 @@ export default function Page() {
     return (
         <div>
             <Navbar active="page" />
-            <div className=" justify-center items-start px-5 md:px-48 py-40 bg-[efefef] dark:bg-[#263a30] dark:bg-opacity-95 duration-300 transition-all ">
+            <div className=" justify-center items-start px-5 md:px-48 py-40 bg-[efefef] dark:bg-[#121212]  duration-300 transition-all ">
             <ViewArticle />
             </div>
-            <div className="w-full ">
+            <div className="w-full bg-white dark:bg-[#121212]">
                 <Footer />
             </div>
             <StickyCtaButton />

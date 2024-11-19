@@ -3,9 +3,8 @@ import { formatWIBTime } from '../hooks/useFormatTime';
 import useStore from '../store/useUVStore';
 import { getResponse } from './GeminiAI';
 const ForecastDisplay = () => {
-    const { forecastData, isLoading } = useStore((state) => state.uvData);
+    const { forecastData, isLoading, } = useStore((state) => state.uvData);
     const [aiResponse, setAIResponse] = useState(""); // State to store AI response
-
     useEffect(() => {
       const generateResponse = async () => {
         setAIResponse('');

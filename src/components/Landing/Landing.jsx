@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const LandingPage = () => {
     return (
-        <section className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen bg-white dark:bg-[#263a30] py-28 px-4 md:py-12 md:px-8 lg:py-20 lg:px-16 xl:px-40">
+        <section className="flex flex-col-reverse lg:flex-row items-center justify-center min-h-screen bg-white dark:bg-[#121212] py-28 px-4 md:py-12 md:px-8 lg:py-20 lg:px-16 xl:px-40">
             {/* Bagian Kanan - Teks dan Tombol */}
             <div className="flex-1 p-4 md:p-6 lg:p-8 text-center lg:text-left">
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4" >

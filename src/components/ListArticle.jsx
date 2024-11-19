@@ -1,38 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { supabase } from "../SupabaseConfig";
 import { truncateContent } from '../hooks/useTruncates';
+import { useArticleManagement } from '../hooks/useArticleManagement';
 import {  Link } from 'react-router-dom';
 const ArticleListCard = (props) => {
-    const [articles, setArticles] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const { articles, loading, fetchArticles } = useArticleManagement();
     useEffect(() => {
         fetchArticles();
     }, []);
-    const fetchArticles = async () => {
-        try {
-            if (props.locate === 'home') {
-                const { data, error } = await supabase
-                    .from('article')
-                    .select('*')
-                    .order('created_at', { ascending: false })
-                    .limit(3);
-                if (error) throw error;
-                setArticles(data || []);
-            }else{
-                const { data, error } = await supabase
-                .from('article')
-                .select('*')
-                .order('created_at', { ascending: false })
-            if (error) throw error;
-            setArticles(data || []);
-            }
-        } catch (error) {
-            console.error('Error fetching articles:', error.message);
-            alert('Error fetching articles');
-        } finally {
-            setLoading(false);
-        }
-    };
+    
     if(loading){
         return(
             <div className="flex justify-center items-center h-screen">
@@ -41,7 +17,7 @@ const ArticleListCard = (props) => {
         )
     }
     return (
-        <div>
+        <div className='bg-white dark:bg-[#121212] max-w-[76rem] mx-auto'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
                 <div key={article.id} className="bg-white dark:bg-[#344E41] rounded-lg shadow-2xl overflow-hidden transition-all duration-300" data-aos="fade-up">

@@ -15,6 +15,14 @@ function ArticleList() {
     useEffect(() => {
         fetchArticles();
     }, []);
+    
+    if(loading) 
+        return(
+        <div className="flex justify-center items-center h-screen">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#263a30]">
+            </div>
+        </div>
+        );
 
     return (
         <div className="flex h-screen bg-gray-100">

@@ -5,16 +5,16 @@ import {getDataIndeks} from '../../services/indeksAPI';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapLocationDot } from '@fortawesome/free-solid-svg-icons';
 import useStore from '../../store/useUVStore';
-
 import './inputField.css';
 
 const SelectForm = () => {
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
   const [formState, setFormState] = useState({
     selectedDate: '',
     selectedHour: '',
   });
-  const [latitude, setLatitude] = useState(null);
-  const [longitude, setLongitude] = useState(null);
+
   
   const { 
     uvData: { locationName, error },
@@ -31,7 +31,6 @@ const SelectForm = () => {
   };
 
   const handleGetLocation = () => {
-
     getLocation(
       async (position) => {
         const { latitude, longitude } = position.coords;
@@ -61,41 +60,57 @@ const SelectForm = () => {
       return;
     }
 
-    setLoading(true);
+    setLoading(true); // Menandakan bahwa proses pengambilan data sedang berjalan
+
     try {
+      // Mendapatkan data indeks UV berdasarkan latitude dan longitude
       const result = await getDataIndeks(latitude, longitude);
       
-      const selectedDate = formState.selectedDate;
-      const selectedHour = parseInt(formState.selectedHour, 10);
+      // Mengambil tanggal dan jam yang dipilih pengguna dari formState
+      const selectedDate = formState.selectedDate; 
+      const selectedHour = parseInt(formState.selectedHour, 10); 
 
-      const forecast = result.forecast.find((item) => {
+      // Menyaring semua data ramalan pada tanggal tertentu
+      const allForecastData = result.forecast.filter((item) => {
         const forecastDate = new Date(item.time);
         const forecastDateString = forecastDate.toISOString().split('T')[0];
-        const forecastHour = (forecastDate.getUTCHours() + 7) % 24;
-
-        return forecastDateString === selectedDate && forecastHour === selectedHour;
+        return forecastDateString === selectedDate; 
       });
 
+      // Mencari data ramalan (forecast) yang sesuai dengan tanggal dan jam yang dipilih
+      const forecast = allForecastData.find((item) => {
+        const forecastDate = new Date(item.time);
+        const forecastHour = (forecastDate.getUTCHours() + 7) % 24; 
+        return forecastHour === selectedHour; 
+      });
+
+      // Jika tidak ada data ramalan yang sesuai, lempar error
       if (!forecast) {
         throw new Error('No forecast data available for selected time');
       }
 
+      // Menyimpan data UV saat ini, ramalan yang dipilih, dan semua data ramalan pada tanggal tertentu ke dalam state
       setUVData({
-        now: result.now,
-        forecast: forecast
+        now: result.now, 
+        forecast: forecast,  
+        allForecastData: allForecastData 
       });
-      setError(null);
+
+      setError(null); 
     } catch (error) {
+      // Menangkap error dan menyimpan pesan error ke dalam state
       setError(error.message || 'Failed to fetch UV index data');
     } finally {
+      // Menandakan bahwa proses pengambilan data selesai
       setLoading(false);
     }
+
   };
 
-  // Get today's date in YYYY-MM-DD format for min date
+  // Mengambil tanggal hari ini untuk min date
   const today = new Date().toISOString().split('T')[0];
   
-  // Get date 7 days from now for max date
+  // Mengambil tanggal selanjutnya untuk max date
   const maxDate = new Date();
   maxDate.setDate(maxDate.getDate() + 4);
   const maxDateString = maxDate.toISOString().split('T')[0];
@@ -152,8 +167,8 @@ const SelectForm = () => {
             min={today}
             max={maxDateString}
             className="block w-full p-3 border border-gray-300 rounded-lg 
-                     focus:outline-none focus:ring-2 focus:ring-yellow-500 
-                     focus:border-transparent transition-all duration-200"
+                    focus:outline-none focus:ring-2 focus:ring-yellow-500 
+                    focus:border-transparent transition-all duration-200"
             required
           />
         </div>
@@ -171,9 +186,9 @@ const SelectForm = () => {
             value={formState.selectedHour}
             onChange={handleInputChange}
             className="block w-full p-3 border border-gray-300 rounded-lg
-                     focus:outline-none focus:ring-2 focus:ring-yellow-500
-                     focus:border-transparent transition-all duration-200
-                     appearance-none bg-white"
+                    focus:outline-none focus:ring-2 focus:ring-yellow-500
+                    focus:border-transparent transition-all duration-200
+                    appearance-none bg-white"
             required
           >
             <option value="" disabled>Choose hour</option>
@@ -188,9 +203,9 @@ const SelectForm = () => {
         <button
           type="submit"
           className="w-full bg-[#A3B18A] dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] text-black font-semibold py-3 px-6 
-                   rounded-lg  focus:outline-none 
-                   focus:ring-2  focus:ring-offset-2 
-                   transition-all duration-200 transform hover:scale-[1.02]"
+                  rounded-lg  focus:outline-none 
+                  focus:ring-2  focus:ring-offset-2 
+                  transition-all duration-200 transform hover:scale-[1.02]"
         >
           Check UV Index
         </button>

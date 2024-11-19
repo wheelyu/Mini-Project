@@ -21,7 +21,7 @@ export const getResponse = async (Data) => {
         Berdasarkan waktu yang diberikan kamu bisa menentukan pagi, siang, sore, atau malam. 
         Jangan gunakan kata hari ini jika data nya berupa ramalan.
         Berikan tingkat keamanan serta saran untuk mengurangi risiko yang tidak diinginkan. 
-        jawab sesingkat mungkin dan jangan gunakan simbol apapun, gunakan gaya bahasa yang cocok dengan gen Z`;
+        jawab sesingkat mungkin dan jangan gunakan simbol apapun. Gunakan bahasa semi formal`;
         const chatSession = model.startChat(generationConfig);
         const result = await chatSession.sendMessage(prompt);
         const aiResponse = result.response.text();
