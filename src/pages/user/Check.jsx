@@ -4,7 +4,7 @@ import Navbar from '../../components/navbar/navbar';
 import InputField from '../../components/inputField/InputField';
 import UVIndexDisplay from '../../components/IndexUV';
 import ForecastDisplay from '../../components/Forecast';
-import Footer from '../../components/Footer';
+import Footer from '../../components/footer';
 const About = () => {
 
 

@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "../../components/navbar/navbar";
 import StickyCtaButton from "../../components/ctaButton";
-import Footer from "../../components/Footer";
+import Footer from "../../components/footer";
 import ListArticle from "../../components/ListArticle";
 export default function ArticlePage() {
     return (
