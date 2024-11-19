@@ -3,7 +3,7 @@ import { supabase } from "../SupabaseConfig";
 import { truncateContent } from '../hooks/useTruncates';
 import { useArticleManagement } from '../hooks/useArticleManagement';
 import {  Link } from 'react-router-dom';
-const ArticleListCard = (props) => {
+const ArticleListCard = () => {
     const { articles, loading, fetchArticles } = useArticleManagement();
     useEffect(() => {
         fetchArticles();
@@ -54,16 +54,7 @@ const ArticleListCard = (props) => {
             ))}
             
         </div>
-        {props.locate === 'home' && (
-                <div className="flex justify-end w-full mt-8 " >
-                    <Link
-                        to="/article"                               
-                        className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-[#A3B18A] dark:bg-[#263a30] dark:hover:bg-[#A3B18A] hover:bg-[#588157] transition-all duration-300"
-                    >
-                        Lihat Lebih Banyak 
-                    </Link>
-                </div>
-            )}
+        
         </div>
     );
 };
