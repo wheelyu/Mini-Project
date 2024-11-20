@@ -20,7 +20,7 @@ const ArticleListCard = () => {
         <div className='bg-white dark:bg-[#121212] max-w-[76rem] mx-auto'>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {articles.map((article) => (
-                <div key={article.id} className="bg-white dark:bg-[#344E41] rounded-lg shadow-2xl overflow-hidden transition-all duration-300" >
+                <div key={article.id} className="bg-white dark:bg-[#344E41] rounded-lg shadow-2xl overflow-hidden " >
                     {article.image_url ? (
                         <img
                             src={article.image_url}
@@ -43,7 +43,7 @@ const ArticleListCard = () => {
                         </div>
                         <Link
                             to={`/page/${article.id}`}
-                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-[#A3B18A] dark:bg-[#263a30] dark:hover:bg-[#A3B18A] hover:bg-[#588157] transition-all duration-300"
+                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-white bg-[#A3B18A] dark:bg-[#263a30] dark:hover:bg-[#A3B18A] hover:bg-[#588157] "
                         >
                             Selengkapnya
                         </Link>

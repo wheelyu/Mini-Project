@@ -81,7 +81,7 @@ const Carousel = () => {
             >
                 {carouselData.map((item, index) => (
                     <SwiperSlide key={index}>
-                        <div className="carousel-item bg-white bg-opacity-80 text-white dark:bg-[#344E41] shadow-lg rounded-lg min-h-[24rem] scale-90 transition-all duration-300 p-4">
+                        <div className="carousel-item bg-white bg-opacity-80 text-white dark:bg-[#344E41] shadow-lg rounded-lg min-h-[24rem] scale-90  p-4">
                             <h1 className="text-xl md:text-2xl font-bold mb-4 text-center  py-2"style={{ color: item.color }}>
                                 {item.title}
                             </h1>

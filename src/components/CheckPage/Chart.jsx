@@ -80,7 +80,7 @@ export default function UVIndexChart() {
             return 'Ekstrem';
         };
     return (
-        <div className="flex flex-col  justify-center items-start px-5 md:px-48 py-20 bg-[efefef] dark:bg-[#121212] duration-300 transition-all ">
+        <div className="flex flex-col  justify-center items-start px-5 md:px-48 py-20 bg-[efefef] dark:bg-[#121212]  ">
             <h1 className="text-4xl font-bold text-gray-800 dark:text-white py-10">Grafik UV Index tanggal {getFormattedDate()}</h1>
             <div className="w-full h-96">
                 <Bar data={chartData} options={chartOptions} />

@@ -150,7 +150,7 @@ function FormLogin() {
                                 <button
                                     type="submit"
                                     disabled={isSubmitting}
-                                    className={`mt-5 tracking-wide font-semibold bg-[#588157] text-white w-full py-4 rounded-lg hover:bg-[#A3B18A] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none ${
+                                    className={`mt-5 tracking-wide font-semibold bg-[#588157] text-white w-full py-4 rounded-lg hover:bg-[#A3B18A]  ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none ${
                                         isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                                     }`}
                                 >

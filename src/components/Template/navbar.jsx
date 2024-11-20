@@ -69,15 +69,10 @@ const Navbar = (props) => {
 
           {/* Right side items */}
           <div className="flex items-center space-x-4">
-            <Link 
-              to="/login" 
-              className="hidden md:block font-medium px-4 py-2 text-black dark:text-white hover:text-white rounded-md hover:bg-[#344E41] dark:hover:bg-[#588157] "
-            >
-              Log in
-            </Link>
+            
             <button
               onClick={toggleDarkMode}
-              className="p-2 rounded-lg   hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200"
+              className="p-2 rounded-lg   hover:bg-gray-300 dark:hover:bg-gray-600 "
               aria-label="Toggle dark mode"
             >
               {isDarkMode ? (
@@ -137,13 +132,7 @@ const Navbar = (props) => {
             >
               UV Index
             </Link>
-            <Link
-              to="/login"
-              className="font-medium px-4 py-2 hover:text-white dark:text-white rounded-md hover:bg-[#344E41] dark:hover:bg-[#263a30] "
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Log in
-            </Link>
+            
           </div>
         </div>
       </nav>
