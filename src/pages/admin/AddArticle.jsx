@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../../components/Admin/SideBarAdmin";
 import Header from "../../components/Admin/Header";
 import useStore from '../../store/sideBarStore';
-import { supabase } from "../../SupabaseConfig";
+import { supabase } from "../../services/SupabaseConfig";
 import { useNavigate } from "react-router-dom";
 import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";

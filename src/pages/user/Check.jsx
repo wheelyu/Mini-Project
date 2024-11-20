@@ -1,11 +1,11 @@
 // src/components/About.jsx
 import React, { useEffect, useState } from 'react';
-import Navbar from '../../components/navbar';
-import InputField from '../../components/inputField/InputField';
-import UVIndexDisplay from '../../components/IndexUV';
-import ForecastDisplay from '../../components/Forecast';
-import ChartDisplay from '../../components/Chart';
-import Footer from '../../components/footer';
+import Navbar from '../../components/Template/navbar';
+import InputField from '../../components/CheckPage/InputField';
+import UVIndexDisplay from '../../components/CheckPage/IndexUV';
+import ForecastDisplay from '../../components/CheckPage/Forecast';
+import ChartDisplay from '../../components/CheckPage/Chart';
+import Footer from '../../components/Template/Footer';
 const About = () => {
 
 

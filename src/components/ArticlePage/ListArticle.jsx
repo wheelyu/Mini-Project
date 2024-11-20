@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { supabase } from "../SupabaseConfig";
-import { truncateContent } from '../hooks/useTruncates';
-import { useArticleManagement } from '../hooks/useArticleManagement';
+import { supabase } from "../../services/SupabaseConfig";
+import { truncateContent } from '../../hooks/useTruncates';
+import { useArticleManagement } from '../../hooks/useArticleManagement';
 import {  Link } from 'react-router-dom';
 const ArticleListCard = () => {
     const { articles, loading, fetchArticles } = useArticleManagement();

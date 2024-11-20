@@ -5,7 +5,7 @@ import useStore from '../../store/sideBarStore';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNewspaper, faEye } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import { supabase } from '../../SupabaseConfig';
+import { supabase } from '../../services/SupabaseConfig';
 
 const Dashboard = () => {
   const { isOpen: sidebarOpen } = useStore();

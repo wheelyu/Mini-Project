@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
-import ViewArticle from "../../components/ViewArticle";
+import Navbar from "../../components/Template/navbar";
+import Footer from "../../components/Template/Footer";
+import ViewArticle from "../../components/ArticlePage/ViewArticle";
 export default function Page() {
     return (
         <div>

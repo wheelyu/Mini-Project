@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import API_CONFIG from "../constant/config";
+import API_CONFIG from "../../constant/config";
 
 
 const apiKey = API_CONFIG.geminiAPI;

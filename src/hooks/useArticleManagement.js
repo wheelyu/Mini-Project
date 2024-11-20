@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '../SupabaseConfig';
+import { supabase } from '../services/SupabaseConfig';
 import Swal from 'sweetalert2';
 
 export const useArticleManagement = () => {

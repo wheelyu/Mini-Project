@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { formatWIBTime } from '../hooks/useFormatTime';
-import useStore from '../store/useUVStore';
+import { formatWIBTime } from '../../hooks/useFormatTime';
+import useStore from '../../store/useUVStore';
 import { getResponse } from './GeminiAI';
 
 const UVIndexDisplay = () => {

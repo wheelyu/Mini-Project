@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Navbar from "../../components/navbar";
-import Footer from "../../components/footer";
-import Landing from "../../components/Landing/Landing";
-import Carousel from "../../components/Carousel/Carousel";
-import Visi from "../../components/Visi"
+import Navbar from "../../components/Template/navbar";
+import Footer from "../../components/Template/Footer";
+import Landing from "../../components/LandingPage/Landing";
+import Carousel from "../../components/LandingPage/Carousel";
+import Visi from "../../components/LandingPage/Visi"
 export default function Home() {
   const [formattedTime, setFormattedTime] = useState(new Date().toLocaleTimeString());
 

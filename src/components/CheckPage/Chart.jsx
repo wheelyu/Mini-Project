@@ -1,8 +1,8 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
-import { formatWIBTime } from '../hooks/useFormatTime';
-import useStore from '../store/useUVStore';
+import { formatWIBTime } from '../../hooks/useFormatTime';
+import useStore from '../../store/useUVStore';
 
 export default function UVIndexChart() {
     const { allForecastData, isLoading } = useStore((state) => state.uvData);
