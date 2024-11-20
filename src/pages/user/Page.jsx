@@ -1,6 +1,5 @@
 import React from "react";
-import Navbar from "../../components/navbar/navbar";
-import StickyCtaButton from "../../components/ctaButton";
+import Navbar from "../../components/navbar";
 import Footer from "../../components/footer";
 import ViewArticle from "../../components/ViewArticle";
 export default function Page() {
@@ -13,7 +12,7 @@ export default function Page() {
             <div className="w-full bg-white dark:bg-[#121212]">
                 <Footer />
             </div>
-            <StickyCtaButton />
+
         </div>
     );
 }

@@ -117,15 +117,15 @@ const SelectForm = () => {
 
   return (
     <div className="w-full md:w-1/2 pt-20">
-      <form onSubmit={handleSubmit} className="p-20 bg-[#4a6e5c] dark:bg-[#344E41] rounded-lg shadow-lg w-full">
-        <h2 className="text-2xl font-semibold mb-6 text-center text-white">
+      <form onSubmit={handleSubmit} className="p-4 md:p-20 bg-white  dark:bg-green-800  dark:bg-opacity-10 rounded-lg shadow-lg w-full">
+        <h2 className="text-2xl font-semibold mb-6 text-center text-black dark:text-white">
           Cek UV Index di lokasi kamu!
         </h2>
 
         <button
           type="button"
           onClick={handleGetLocation}
-          className="Btn mb-6 mx-auto flex items-center justify-center bg-[#A3B18A] dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] "
+          className="Btn mb-6 mx-auto flex items-center justify-center bg-green-900 dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-green-700"
         >
           <div className="sign">
             <FontAwesomeIcon icon={faMapLocationDot} className="text-lg " />
@@ -133,16 +133,23 @@ const SelectForm = () => {
           <div className="text">Check</div>
         </button>
       <div className='min-h-20'>
-        {locationName && (
+        {locationName ? (
           <div className="mb-6 p-4 bg-green-50 rounded-lg" >
             <p className="text-green-700 font-medium">
               📍 {locationName}
             </p>
           </div>
-        )
+        ) : 
         
-        }
-
+        (
+          <div className="mb-6 p-4 bg-yellow-50 rounded-lg" >
+            <p className="text-yellow-600 font-medium">
+              📍 Klik tombol diatas
+            </p>
+          </div>
+        )}
+        
+        
         {error && (
           <div className="mb-6 p-4 bg-red-50 rounded-lg" >
             <p className="text-red-600">
@@ -168,7 +175,7 @@ const SelectForm = () => {
             max={maxDateString}
             className="block w-full p-3 border border-gray-300 rounded-lg 
                     focus:outline-none focus:ring-2 focus:ring-yellow-500 
-                    focus:border-transparent transition-all duration-200"
+                    focus:border-transparent "
             required
           />
         </div>
@@ -187,7 +194,7 @@ const SelectForm = () => {
             onChange={handleInputChange}
             className="block w-full p-3 border border-gray-300 rounded-lg
                     focus:outline-none focus:ring-2 focus:ring-yellow-500
-                    focus:border-transparent transition-all duration-200
+                    focus:border-transparent 
                     appearance-none bg-white"
             required
           >
@@ -202,10 +209,10 @@ const SelectForm = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#A3B18A] dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] text-black font-semibold py-3 px-6 
+          className="w-full bg-green-900 dark:bg-[#588157] hover:bg-green-800 dark:hover:bg-green-700 text-white font-semibold py-3 px-6 
                   rounded-lg  focus:outline-none 
                   focus:ring-2  focus:ring-offset-2 
-                  transition-all duration-200 transform hover:scale-[1.02]"
+                  "
         >
           Check UV Index
         </button>

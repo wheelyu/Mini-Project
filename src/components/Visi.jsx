@@ -35,7 +35,7 @@ const Visi = () => {
                 {cardData.map((card, index) => (
                     <li key={index} className="w-full">
                         <div className="bg-white dark:bg-gray-100 dark:bg-opacity-5 border dark:border-0 rounded-xl shadow-sm overflow-hidden flex flex-col sm:flex-row">
-                        <div className="sm:w-1/3 h-48 sm:h-auto relative">
+                        <div className="sm:w-1/3 h-20 sm:h-auto relative">
                             <img
                             className="w-full h-full object-cover absolute top-0 left-0"
                             src={imageUrl}

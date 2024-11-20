@@ -167,7 +167,7 @@ function FormLogin() {
                 <div
                     className="flex-1 bg-[#344E41] text-center hidden lg:flex rounded-lg bg-cover bg-blend-multiply bg-no-repeat"
                     style={{
-                        backgroundImage: 'url("bg.jpg")',
+                        backgroundImage: 'url("green.jpg")',
                     }}
                 >
                     <div className="h-full flex flex-col items-center justify-center text-4xl w-full text-white font-black">

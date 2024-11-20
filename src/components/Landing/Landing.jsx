@@ -17,7 +17,7 @@ const LandingPage = () => {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start" >
                     <Link
                         to="/check"
-                        className="inline-block px-4 md:px-6 py-3 rounded-lg bg-[#A3B18A] dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] text-white font-semibold shadow-md focus:bg-cyan-700 focus:outline-none duration-300 transition-all text-sm md:text-base"
+                        className="inline-block px-4 md:px-6 py-3 rounded-lg bg-green-900 dark:bg-[#588157] hover:bg-[#588157] dark:hover:bg-[#A3B18A] text-white font-semibold shadow-md focus:bg-cyan-700 focus:outline-none duration-300 transition-all text-sm md:text-base"
                     >
                         Check UV kamu!
                     </Link>
