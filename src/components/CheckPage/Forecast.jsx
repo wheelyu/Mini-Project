@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { formatWIBTime } from '../../hooks/useFormatTime';
 import useStore from '../../store/useUVStore';
-import { getResponse } from './GeminiAI';
+import { getResponse } from '../../services/GeminiAI';
 const ForecastDisplay = () => {
     const { forecastData, isLoading, } = useStore((state) => state.uvData);
     const [aiResponse, setAIResponse] = useState(""); // State to store AI response

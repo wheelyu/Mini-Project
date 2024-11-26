@@ -33,11 +33,11 @@ const SelectForm = () => {
   const handleGetLocation = () => {
     getLocation(
       async (position) => {
-        const { latitude, longitude } = position.coords;
+        const { latitude, longitude } = position.coords; // Dapatkan koordinat latitude dan longitude
         setLatitude(latitude);
         setLongitude(longitude);
         try {
-          const name = await fetchLocationName(latitude, longitude);
+          const name = await fetchLocationName(latitude, longitude); // Dapatkan nama lokasi
           setLocationName(name);
           setError(null);
         } catch (error) {

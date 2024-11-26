@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { supabase } from "../../services/SupabaseConfig";
 import { truncateContent } from '../../hooks/useTruncates';
 import { useArticleManagement } from '../../hooks/useArticleManagement';

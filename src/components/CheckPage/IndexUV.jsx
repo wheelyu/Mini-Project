@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { formatWIBTime } from '../../hooks/useFormatTime';
 import useStore from '../../store/useUVStore';
-import { getResponse } from './GeminiAI';
+import { getResponse } from '../../services/GeminiAI';
 
 const UVIndexDisplay = () => {
   const { currentData, locationName, isLoading } = useStore((state) => state.uvData);
@@ -11,7 +11,7 @@ const UVIndexDisplay = () => {
     const generateResponse = async () => {
         setAIResponse('');
       if (currentData) {
-        const Data = 'uvi saat ini ' + currentData.uvi + 'pada tanggal dan waktu:' + formatWIBTime(currentData.time);
+        const Data = 'uvi hari ini ' + currentData.uvi + 'pada tanggal dan waktu:' + formatWIBTime(currentData.time);
         console.log(Data);
         try {
           const response = await getResponse(Data);
