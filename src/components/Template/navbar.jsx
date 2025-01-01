@@ -45,16 +45,7 @@ const Navbar = (props) => {
             >
               Home
             </Link>
-            <Link
-              className={`font-medium px-4 py-2  rounded-md ${
-                props.active === 'article' 
-                ? 'bg-[#344E41] dark:bg-[#263a30] text-white' 
-                  : 'hover:bg-[#344E41] dark:hover:bg-[#263a30] text-black hover:text-white dark:text-white'
-              }`}
-              to="/article"
-            >
-              Article
-            </Link>
+            
             <Link
               className={`font-medium px-4 py-2  rounded-md ${
                 props.active === 'check' 
