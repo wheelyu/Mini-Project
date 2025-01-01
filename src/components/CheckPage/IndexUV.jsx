@@ -1,29 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { formatWIBTime } from '../../hooks/useFormatTime';
 import useStore from '../../store/useUVStore';
-import { getResponse } from '../../services/GeminiAI';
 
 const UVIndexDisplay = () => {
   const { currentData, locationName, isLoading } = useStore((state) => state.uvData);
-  const [aiResponse, setAIResponse] = useState(""); // State to store AI response
-
-  useEffect(() => {
-    const generateResponse = async () => {
-        setAIResponse('');
-      if (currentData) {
-        const Data = 'uvi hari ini ' + currentData.uvi + 'pada tanggal dan waktu:' + formatWIBTime(currentData.time);
-        console.log(Data);
-        try {
-          const response = await getResponse(Data);
-          setAIResponse(response); 
-          console.log("AI Response:", response);
-        } catch (error) {
-          console.error("Error generating AI response:", error);
-        }
-      }
-    };
-    generateResponse();
-  }, [currentData]); // Menjalankan effect setiap kali currentData berubah
 
   return (
     <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white">
@@ -40,8 +20,20 @@ const UVIndexDisplay = () => {
                 <li><strong>Current UVI:</strong> {currentData.uvi}</li>
               </ul>
               <p className="text-xl w-full">
-                {aiResponse || "Memuat respons AI..."} {/* Display AI response or loading text */}
+                Berdasarkan data hari ini, 
+                tingkat indeks UV adalah {currentData.uvi}, 
+                yang berarti kondisi ini tergolong{' '}
+                {currentData.uvi <= 2
+                  ? 'rendah dan relatif aman bagi kulit. Anda tidak memerlukan perlindungan tambahan, tetapi tetap disarankan untuk menggunakan tabir surya.'
+                  : currentData.uvi <= 5
+                  ? 'sedang. Disarankan untuk memakai tabir surya dan mengenakan pelindung seperti topi jika Anda akan berada di luar untuk waktu yang lama.'
+                  : currentData.uvi <= 7
+                  ? 'tinggi. Paparan UV yang berkepanjangan dapat merusak kulit. Gunakan tabir surya, kacamata hitam, dan tetap di tempat teduh jika memungkinkan.'
+                  : currentData.uvi <= 10
+                  ? 'sangat tinggi. Risiko kerusakan kulit meningkat secara signifikan. Hindari paparan matahari langsung selama siang hari, gunakan pelindung penuh.'
+                  : 'ekstrem. Paparan sinar UV sangat berbahaya. Tetap di dalam ruangan sebanyak mungkin, dan hindari semua paparan matahari.'}
               </p>
+
             </div>
             <div className="w-1/4" >
               <img src={currentData.uvi <= 2 ? 'sun1.png' : 
