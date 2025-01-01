@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="bg-white dark:bg-[#121212]">
       <Navbar active="home" />
-      <div className="flex flex-col md:flex-row justify-center items-start px-5 md:px-48  bg-[efefef] dark:bg-[#121212] duration-300 transition-all h-fit">
+      <div className="flex flex-col md:flex-row justify-center items-start px-5 md:px-48  bg-[efefef] dark:bg-[#121212]  h-fit">
         <Landing />
       </div>
       <Carousel />
