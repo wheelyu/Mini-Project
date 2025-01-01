@@ -116,10 +116,10 @@ const SelectForm = () => {
   const maxDateString = maxDate.toISOString().split('T')[0];
 
   return (
-    <div className="w-full md:w-1/2 pt-20">
+    <div className="w-full md:w-1/2 ">
       <form onSubmit={handleSubmit} className="p-4 md:p-20 bg-white  dark:bg-green-800  dark:bg-opacity-10 rounded-lg shadow-lg w-full">
         <h2 className="text-2xl font-semibold mb-6 text-center text-black dark:text-white">
-          Cek UV Index di lokasi kamu!
+          Check your Location 
         </h2>
 
         <button
@@ -163,7 +163,7 @@ const SelectForm = () => {
             htmlFor="date" 
             className="block text-white font-medium mb-2"
           >
-            Pilih Tanggal
+            Select Date
           </label>
           <input
             type="date"
@@ -185,7 +185,7 @@ const SelectForm = () => {
             htmlFor="hour" 
             className="block text-white font-medium mb-2"
           >
-            Pilih Waktu
+            Select Hour
           </label>
           <select
             id="hour"
