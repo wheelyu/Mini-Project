@@ -1,56 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { formatWIBTime } from '../../hooks/useFormatTime';
 import useStore from '../../store/useUVStore';
-import { getResponse } from '../../services/GeminiAI';
 const ForecastDisplay = () => {
     const { forecastData, isLoading, } = useStore((state) => state.uvData);
-    const [aiResponse, setAIResponse] = useState(""); // State to store AI response
-    useEffect(() => {
-      const generateResponse = async () => {
-        setAIResponse('');
-        if (forecastData) {
-         
-          const Data = 'Ramalan UVI: ' + forecastData.uvi + ' Ramalan pada tanggal dan waktu:' + formatWIBTime(forecastData.time);
-          console.log(Data);
-          try {
-            const response = await getResponse(Data);
-            setAIResponse(response); // Set the AI response in the state
-            console.log("AI Response:", response);
-          } catch (error) {
-            console.error("Error generating AI response:", error);
-          }
-        }
-      };
-      
-      generateResponse();
-    }, [forecastData]);
+    
       
     return (
-        <div className="min-h-56 max-h-fit md:max-h-56 dark:text-white" >
-        <h2 className="text-xl font-bold mt-4">Ramalan UV</h2>
+        <div className=" dark:text-white min-h-[540px]" >
+        <h2 className="text-xl font-bold mt-4 text-center w-full">Forecast Result</h2>
         {isLoading ? (
             <div className="loader mx-auto mt-12"></div>
         ) :
-        (forecastData ? (
+        (forecastData.time ? (
             <div className="flex flex-row justify-between">
-            <div className=" w-3/4" >
-                <ul className="list-disc pl-4">
-                <li><strong>Forecast Time:</strong> {formatWIBTime(forecastData.time)}</li>
-                <li><strong>Forecast UVI:</strong> {forecastData.uvi}</li>
-                </ul>
-                <p className="text-xl w-full">
-                {aiResponse || "Memuat respons AI..."} {/* Display AI response or loading text */}
+            <div className=" w-full" >
+                <div className="list-disc pl-4 flex flex-row justify-between">
+                <p><strong>Forecast Time:</strong> {formatWIBTime(forecastData.time)}</p>
+                <p><strong>Forecast UVI:</strong> {forecastData.uvi}</p>
+                </div>
+                <p className="text-xl w-full my-10 text-center">
+                  As of <strong>{formatWIBTime(forecastData.time)}</strong>, the UV index is <strong style={{ color: forecastData.uvi <= 2 ? 'green' : forecastData.uvi <= 5 ? 'yellow' : forecastData.uvi <= 7 ? 'orange' : forecastData.uvi <= 10 ? 'red' : 'purple' }}>{forecastData.uvi}</strong>. 
+                  This means {forecastData.uvi <= 2
+                  ? 'you can enjoy the sun with minimal protection. However, sunscreen is always a good idea.'
+                  : forecastData.uvi <= 5
+                  ? 'the suns rays are strong. Protect yourself with sunscreen, a hat, and sunglasses, especially if youll be outdoors for a long time.'
+                  : forecastData.uvi <= 7
+                  ? 'the sun is intense. Sunburn is likely if you dont protect your skin. Use sunscreen, wear a hat and sunglasses, and seek shade.'
+                  : forecastData.uvi <= 10
+                  ? 'the sun is very strong. Skin damage is likely. Stay in the shade as much as possible between 10 am and 4 pm. Wear protective clothing and sunscreen.'
+                  : 'the sun is extremely strong. Sunburn will occur very quickly. Stay indoors and avoid all sun exposure.'}
                 </p>
-            </div>
-            <div className="w-1/4" >
-                <img src={forecastData.uvi <= 2 ? 'sun1.png' : 
-                forecastData.uvi <= 5 ?'sun2.png':
-                forecastData.uvi <= 7 ?'sun3.png':
-                forecastData.uvi <= 10 ?'sun4.png':'sun5.png'} alt="UV Index" className="mx-auto mt-4 w-40" />
+
             </div>
             </div>
         ) : (
-            <p className="text-gray-500">Tidak ada Data Ramalan</p>
+            <p className="text-gray-500">No forecast data available</p>
         ))}
     </div>
   );
