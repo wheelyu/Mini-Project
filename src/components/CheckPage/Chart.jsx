@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS } from 'chart.js/auto';
 import { formatWIBTime } from '../../hooks/useFormatTime';
 import useStore from '../../store/useUVStore';
-
+import IndexUV from './IndexUV';
 export default function UVIndexChart() {
     const { allForecastData, isLoading } = useStore((state) => state.uvData);
     
@@ -23,7 +23,7 @@ export default function UVIndexChart() {
             const date = new Date(firstDataItem.time);
             
             // Format date in Indonesian style
-            return date.toLocaleDateString('id-ID', {
+            return date.toLocaleDateString('en-US', {
                 day: 'numeric',
                 month: 'long',
                 year: 'numeric'
@@ -81,6 +81,7 @@ export default function UVIndexChart() {
         };
     return (
         <div className="flex flex-col  justify-center items-start px-5 md:px-48 py-20 bg-[efefef] dark:bg-[#121212]  ">
+            <IndexUV />
             <h1 className="text-4xl font-bold text-gray-800 dark:text-white py-10">Grafik UV Index tanggal {getFormattedDate()}</h1>
             <div className="w-full h-96">
                 <Bar data={chartData} options={chartOptions} />
