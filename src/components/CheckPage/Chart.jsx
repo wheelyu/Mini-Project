@@ -13,7 +13,7 @@ export default function UVIndexChart() {
 
     // Filter out data with UVI = 0
     const filteredForecastData = allForecastData.filter(item => item.uvi > 0);
-
+    console.log(filteredForecastData);
     if (!filteredForecastData || filteredForecastData.length === 0) {
         return <div className="bg-white dark:bg-[#121212] dark:text-[#344E41] text-[#2b4237] ">No UV index data Selected</div>;
     }

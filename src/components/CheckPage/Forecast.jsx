@@ -11,7 +11,7 @@ const ForecastDisplay = () => {
         {isLoading ? (
             <div className="loader mx-auto mt-12"></div>
         ) :
-        (forecastData.time ? (
+        (forecastData ? (
             <div className="flex flex-row justify-between">
             <div className=" w-full" >
                 <div className="list-disc pl-4 flex flex-row justify-between">
